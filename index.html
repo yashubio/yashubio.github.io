@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,35 +18,10 @@ box-sizing:border-box;
 font-family:'Inter',sans-serif;
 }
 
-html{
-scroll-behavior:smooth;
-}
-
 body{
-background:#0b0f19;
+background:#0f172a;
 color:white;
 overflow-x:hidden;
-}
-
-/* ANIME BACKGROUND */
-
-.bg{
-position:fixed;
-width:100%;
-height:100%;
-background:url("https://wallpaperaccess.com/full/7055931.jpg") center/cover no-repeat;
-filter:brightness(0.35);
-z-index:-1;
-animation:floatbg 20s infinite linear alternate;
-}
-
-/* FLOAT ANIMATION */
-
-@keyframes floatbg{
-
-0%{transform:scale(1) translateY(0px);}
-100%{transform:scale(1.1) translateY(-40px);}
-
 }
 
 /* NAVBAR */
@@ -54,21 +30,15 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:25px 8%;
-backdrop-filter:blur(12px);
-position:fixed;
-width:100%;
-}
-
-nav h2{
-font-weight:600;
+padding:20px 8%;
+background:#020617;
 }
 
 nav a{
-margin-left:25px;
+color:#cbd5f5;
 text-decoration:none;
-color:#d1d5db;
-transition:0.2s;
+margin-left:20px;
+transition:.2s;
 }
 
 nav a:hover{
@@ -78,53 +48,66 @@ color:#38bdf8;
 /* HERO */
 
 .hero{
-height:100vh;
+height:90vh;
 display:flex;
-justify-content:center;
 align-items:center;
-flex-direction:column;
-text-align:center;
+justify-content:space-between;
+padding:0 10%;
 }
 
-.hero h1{
-font-size:60px;
-font-weight:600;
+/* TEXT */
+
+.hero-text h1{
+font-size:55px;
 }
 
-.hero span{
+.hero-text span{
 color:#38bdf8;
 }
 
-.hero p{
+.hero-text p{
 margin-top:10px;
-color:#9ca3af;
+color:#94a3b8;
 }
 
 /* BUTTON */
 
 .btn{
-margin-top:30px;
-padding:15px 35px;
-border-radius:10px;
+margin-top:20px;
+padding:12px 28px;
+background:#38bdf8;
 border:none;
-font-size:16px;
+border-radius:8px;
 cursor:pointer;
-color:white;
-background:linear-gradient(45deg,#38bdf8,#6366f1);
-transition:all .2s ease;
+font-size:16px;
+transition:.2s;
 }
 
 .btn:hover{
+transform:translateY(-3px);
+}
 
-transform:translateY(-4px) scale(1.05);
-box-shadow:0 10px 30px rgba(56,189,248,0.6);
+/* ANIME CHARACTER */
+
+.hero-img img{
+width:350px;
+animation:float 4s ease-in-out infinite;
+}
+
+/* FLOAT ANIMATION */
+
+@keyframes float{
+
+0%{transform:translateY(0px);}
+50%{transform:translateY(-10px);}
+100%{transform:translateY(0px);}
 
 }
 
 /* SECTION */
 
 section{
-padding:120px 10%;
+padding:80px 10%;
 }
 
 /* CARDS */
@@ -132,47 +115,30 @@ padding:120px 10%;
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
+gap:20px;
 }
 
 .card{
-
-background:rgba(255,255,255,0.05);
-padding:30px;
-border-radius:12px;
-backdrop-filter:blur(10px);
-transition:all .18s ease;
-
+background:#1e293b;
+padding:25px;
+border-radius:10px;
+transition:.2s;
 }
 
 .card:hover{
-
-transform:translateY(-8px) scale(1.02);
-background:rgba(255,255,255,0.08);
-
-}
-
-/* TITLES */
-
-.title{
-font-size:32px;
-margin-bottom:25px;
+transform:translateY(-5px);
 }
 
 footer{
-
 text-align:center;
-padding:40px;
-color:#9ca3af;
-
+padding:30px;
+color:#94a3b8;
 }
 
 </style>
 </head>
 
 <body>
-
-<div class="bg"></div>
 
 <nav>
 
@@ -186,37 +152,50 @@ color:#9ca3af;
 
 </nav>
 
+<!-- HERO -->
 
 <div class="hero">
 
+<div class="hero-text">
+
 <h1>Hello I'm <span>Yashu</span></h1>
 
-<p>15 Year Old Developer From Uttarakhand</p>
+<p>15 year old developer from Uttarakhand</p>
 
-<button class="btn">Explore My Work</button>
+<button class="btn">Explore</button>
 
 </div>
 
+<div class="hero-img">
+
+<img src="https://pngimg.com/uploads/anime/anime_PNG45.png">
+
+</div>
+
+</div>
+
+<!-- ABOUT -->
 
 <section id="about">
 
-<h2 class="title">About Me</h2>
+<h2>About Me</h2>
 
 <div class="card">
 
 <p>
-My name is Yashu Bisht. I enjoy learning coding, building websites,
-creating Telegram bots and exploring new technology.
+My name is Yashu Bisht. I enjoy coding, creating websites,
+building Telegram bots and learning new technologies.
 </p>
 
 </div>
 
 </section>
 
+<!-- SKILLS -->
 
 <section id="skills">
 
-<h2 class="title">Skills</h2>
+<h2>Skills</h2>
 
 <div class="grid">
 
@@ -230,10 +209,11 @@ creating Telegram bots and exploring new technology.
 
 </section>
 
+<!-- PROJECTS -->
 
 <section id="projects">
 
-<h2 class="title">Projects</h2>
+<h2>Projects</h2>
 
 <div class="grid">
 
@@ -244,7 +224,6 @@ creating Telegram bots and exploring new technology.
 </div>
 
 </section>
-
 
 <footer>
 
