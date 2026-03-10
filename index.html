@@ -177,6 +177,8 @@ border-radius:8px;
 
 display:none;
 
+font-weight:500;
+
 }
 
 footer{
@@ -270,7 +272,7 @@ I enjoy learning coding every day and building projects online.
 
 
 <div id="notify">
-Message sent! They will reply soon.
+Message sent! They will reply very soon.
 </div>
 
 
@@ -286,7 +288,7 @@ Message sent! They will reply soon.
 /* EMAILJS INIT */
 
 (function(){
-emailjs.init("YOUR_PUBLIC_KEY");
+emailjs.init("ULR-Z2fmkzhaUKmJC");
 })();
 
 /* SEND EMAIL */
@@ -296,7 +298,11 @@ document.getElementById("contact-form")
 
 e.preventDefault();
 
-emailjs.sendForm("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",this)
+emailjs.sendForm(
+"service_50uezjs",
+"template_30we1ct",
+this
+)
 
 .then(function(){
 
@@ -310,7 +316,7 @@ document.getElementById("notify").style.display="none";
 
 });
 
-/* TYPING */
+/* TYPING EFFECT */
 
 const text="Developer • Bot Creator • Website Builder";
 
