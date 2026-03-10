@@ -22,9 +22,9 @@ align-items:center;
 justify-content:center;
 overflow:hidden;
 
-/* BACKGROUND IMAGE */
+/* ANIME BACKGROUND */
 
-background-image:url("https://images.unsplash.com/photo-1519681393784-d120267933ba");
+background-image:url("https://wallpaperaccess.com/full/1161775.jpg");
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
@@ -34,23 +34,23 @@ background-attachment:fixed;
 /* dark overlay */
 
 body::before{
+
 content:"";
 position:absolute;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.35);
-z-index:0;
+
+background:rgba(0,0,0,0.45);
+
 }
 
-/* main container */
+/* glass container */
 
 .container{
 
 position:relative;
-z-index:1;
-
 width:900px;
 padding:40px;
 
@@ -59,14 +59,14 @@ border-radius:20px;
 background:rgba(255,255,255,0.15);
 backdrop-filter:blur(15px);
 
-box-shadow:0 20px 60px rgba(0,0,0,0.3);
+box-shadow:0 20px 60px rgba(0,0,0,0.4);
 
 text-align:center;
 color:white;
 
 }
 
-/* viewer */
+/* live viewers */
 
 .live{
 
@@ -142,6 +142,8 @@ background:#4f46e5;
 
 }
 
+/* footer */
+
 .footer{
 
 margin-top:25px;
@@ -156,7 +158,9 @@ font-size:14px;
 position:absolute;
 width:8px;
 height:8px;
+
 background:pink;
+
 border-radius:50%;
 opacity:0.8;
 
@@ -244,7 +248,7 @@ Website by Yashu Bisht
 
 <script>
 
-/* live viewer */
+/* viewer counter */
 
 function updateViewers(){
 
