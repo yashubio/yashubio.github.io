@@ -3,138 +3,185 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yashu Bisht | Developer</title>
+
+<title>Yashu Bisht</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
 body{
-    margin:0;
-    font-family: 'Segoe UI', sans-serif;
-    background:#0d1117;
-    color:#c9d1d9;
+background:#0b0f19;
+color:white;
+overflow-x:hidden;
+}
+
+/* ANIME BACKGROUND */
+
+.bg{
+position:fixed;
+width:100%;
+height:100%;
+background:url("https://wallpaperaccess.com/full/7055931.jpg") center/cover no-repeat;
+filter:brightness(0.35);
+z-index:-1;
+animation:floatbg 20s infinite linear alternate;
+}
+
+/* FLOAT ANIMATION */
+
+@keyframes floatbg{
+
+0%{transform:scale(1) translateY(0px);}
+100%{transform:scale(1.1) translateY(-40px);}
+
 }
 
 /* NAVBAR */
 
 nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 10%;
-    background:#161b22;
-    border-bottom:1px solid #30363d;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 8%;
+backdrop-filter:blur(12px);
+position:fixed;
+width:100%;
 }
 
-nav h1{
-    color:#58a6ff;
+nav h2{
+font-weight:600;
 }
 
 nav a{
-    color:#c9d1d9;
-    text-decoration:none;
-    margin-left:20px;
-    transition:0.3s;
+margin-left:25px;
+text-decoration:none;
+color:#d1d5db;
+transition:0.2s;
 }
 
 nav a:hover{
-    color:#58a6ff;
+color:#38bdf8;
 }
 
 /* HERO */
 
 .hero{
-    height:90vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    animation:fadeIn 1.5s ease;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
 }
 
-.hero h2{
-    font-size:45px;
+.hero h1{
+font-size:60px;
+font-weight:600;
 }
 
 .hero span{
-    color:#58a6ff;
+color:#38bdf8;
+}
+
+.hero p{
+margin-top:10px;
+color:#9ca3af;
 }
 
 /* BUTTON */
 
 .btn{
-    margin-top:20px;
-    padding:12px 25px;
-    border:none;
-    border-radius:8px;
-    background:#238636;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    transition:0.3s;
+margin-top:30px;
+padding:15px 35px;
+border-radius:10px;
+border:none;
+font-size:16px;
+cursor:pointer;
+color:white;
+background:linear-gradient(45deg,#38bdf8,#6366f1);
+transition:all .2s ease;
 }
 
 .btn:hover{
-    background:#2ea043;
-    transform:scale(1.05);
+
+transform:translateY(-4px) scale(1.05);
+box-shadow:0 10px 30px rgba(56,189,248,0.6);
+
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
-    padding:80px 10%;
+padding:120px 10%;
+}
+
+/* CARDS */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 .card{
-    background:#161b22;
-    padding:25px;
-    border-radius:12px;
-    border:1px solid #30363d;
-    margin-top:20px;
-    transition:0.3s;
+
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:12px;
+backdrop-filter:blur(10px);
+transition:all .18s ease;
+
 }
 
 .card:hover{
-    transform:translateY(-5px);
-    border-color:#58a6ff;
+
+transform:translateY(-8px) scale(1.02);
+background:rgba(255,255,255,0.08);
+
 }
 
-/* GRID */
+/* TITLES */
 
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+.title{
+font-size:32px;
+margin-bottom:25px;
 }
-
-/* FOOTER */
 
 footer{
-    text-align:center;
-    padding:20px;
-    border-top:1px solid #30363d;
-}
 
-/* ANIMATION */
+text-align:center;
+padding:40px;
+color:#9ca3af;
 
-@keyframes fadeIn{
-from{opacity:0; transform:translateY(20px);}
-to{opacity:1; transform:translateY(0);}
 }
 
 </style>
 </head>
 
-
 <body>
 
+<div class="bg"></div>
+
 <nav>
-<h1>Yashu.dev</h1>
+
+<h2>Yashu Bisht</h2>
 
 <div>
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
 </div>
 
 </nav>
@@ -142,33 +189,24 @@ to{opacity:1; transform:translateY(0);}
 
 <div class="hero">
 
-<div>
-<h2>Hello 👋<br>I am <span>Yashu Bisht</span></h2>
+<h1>Hello I'm <span>Yashu</span></h1>
 
-<p>15 year old developer from Uttarakhand</p>
+<p>15 Year Old Developer From Uttarakhand</p>
 
 <button class="btn">Explore My Work</button>
-
-</div>
 
 </div>
 
 
 <section id="about">
 
-<h2>About Me</h2>
+<h2 class="title">About Me</h2>
 
 <div class="card">
 
 <p>
-My name is <b>Yashu Bisht</b>.  
-I am 15 years old and I belong to Uttarakhand, India.
-
-I love learning new coding techniques, building websites,
-creating Telegram bots, and working with custom systems.
-
-My goal is to become a powerful developer and create
-useful tools for people.
+My name is Yashu Bisht. I enjoy learning coding, building websites,
+creating Telegram bots and exploring new technology.
 </p>
 
 </div>
@@ -178,14 +216,15 @@ useful tools for people.
 
 <section id="skills">
 
-<h2>Skills</h2>
+<h2 class="title">Skills</h2>
 
 <div class="grid">
 
-<div class="card">🌐 Website Development</div>
-<div class="card">🤖 Telegram Bots</div>
-<div class="card">⚡ Custom Coding</div>
-<div class="card">💡 Learning New Tech</div>
+<div class="card">Website Development</div>
+
+<div class="card">Telegram Bots</div>
+
+<div class="card">Custom Coding</div>
 
 </div>
 
@@ -194,34 +233,13 @@ useful tools for people.
 
 <section id="projects">
 
-<h2>Projects</h2>
+<h2 class="title">Projects</h2>
 
 <div class="grid">
 
-<div class="card">
-<h3>Telegram Bots</h3>
-<p>Custom bots for automation and selling services.</p>
-</div>
+<div class="card">Telegram Bots</div>
 
-<div class="card">
-<h3>Websites</h3>
-<p>Modern responsive websites with clean UI.</p>
-</div>
-
-</div>
-
-</section>
-
-
-<section id="contact">
-
-<h2>Contact</h2>
-
-<div class="card">
-
-<p>Want to work with me?</p>
-
-<button class="btn">Contact Me</button>
+<div class="card">Modern Websites</div>
 
 </div>
 
@@ -230,7 +248,7 @@ useful tools for people.
 
 <footer>
 
-<p>© 2026 Yashu Bisht</p>
+© 2026 Yashu Bisht
 
 </footer>
 
