@@ -24,16 +24,30 @@ scroll-behavior:smooth;
 }
 
 body{
-background:
-linear-gradient(rgba(5,5,10,0.85),rgba(5,5,10,0.92)),
-url("https://images.alphacoders.com/133/1337529.jpeg");
 
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-
+background:#05070f;
 color:white;
 overflow-x:hidden;
+
+}
+
+/* PARTICLES */
+
+#particles{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-2;
+}
+
+/* MATRIX */
+
+#matrix{
+position:fixed;
+top:0;
+left:0;
+z-index:-1;
+opacity:.15;
 }
 
 /* NAVBAR */
@@ -42,7 +56,7 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 8%;
+padding:22px 8%;
 background:rgba(0,0,0,0.5);
 backdrop-filter:blur(10px);
 position:sticky;
@@ -52,12 +66,14 @@ top:0;
 nav h2{
 font-family:'Orbitron';
 color:#38bdf8;
+letter-spacing:2px;
 }
 
 nav a{
 color:#cbd5f5;
 text-decoration:none;
 margin-left:25px;
+transition:.25s;
 }
 
 nav a:hover{
@@ -67,16 +83,18 @@ color:#38bdf8;
 /* HERO */
 
 .hero{
-height:95vh;
+
+height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+
 }
 
 .hero h1{
-font-size:70px;
+font-size:75px;
 font-family:'Orbitron';
 }
 
@@ -89,26 +107,29 @@ margin-top:10px;
 color:#9ca3af;
 }
 
-/* EXPLORE BUTTON */
+/* ELITE BUTTON */
 
 .btn{
-margin-top:25px;
-padding:15px 36px;
+
+margin-top:30px;
+padding:15px 40px;
+
 border-radius:10px;
 border:none;
 cursor:pointer;
 
 background:#38bdf8;
 color:white;
+
 font-size:16px;
 
 box-shadow:
 0 0 10px #38bdf8,
 0 0 25px #38bdf8,
-0 0 45px #38bdf8;
+0 0 60px #38bdf8;
 
 animation:pulse 2s infinite;
-transition:.2s;
+
 }
 
 .btn:hover{
@@ -118,7 +139,7 @@ transform:scale(1.1);
 @keyframes pulse{
 
 0%{box-shadow:0 0 10px #38bdf8;}
-50%{box-shadow:0 0 40px #38bdf8;}
+50%{box-shadow:0 0 50px #38bdf8;}
 100%{box-shadow:0 0 10px #38bdf8;}
 
 }
@@ -126,89 +147,147 @@ transform:scale(1.1);
 /* TERMINAL */
 
 .terminal{
+
 background:#020617;
-border-radius:10px;
-padding:20px;
+
+border-radius:12px;
+
+padding:25px;
+
 margin-top:40px;
+
 font-family:monospace;
+
 width:80%;
-max-width:600px;
+max-width:650px;
+
 color:#22c55e;
+
 text-align:left;
+
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
-padding:100px 10%;
+
+padding:120px 10%;
+
+opacity:0;
+transform:translateY(50px);
+transition:1s;
+
+}
+
+section.show{
+
+opacity:1;
+transform:translateY(0);
+
 }
 
 .title{
-font-size:32px;
-margin-bottom:30px;
+
+font-size:34px;
+margin-bottom:40px;
 font-family:'Orbitron';
-}
 
-/* CARDS */
-
-.card{
-background:rgba(20,20,30,0.8);
-padding:30px;
-border-radius:12px;
-transition:.25s;
-}
-
-.card:hover{
-transform:translateY(-10px) scale(1.05);
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
 /* GRID */
 
 .grid{
+
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:25px;
+
+}
+
+/* CARDS */
+
+.card{
+
+background:rgba(20,20,30,0.85);
+padding:30px;
+border-radius:14px;
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-12px) scale(1.05);
+box-shadow:0 10px 40px rgba(0,0,0,0.8);
+
 }
 
 /* ANIME CHARACTER */
 
 .anime{
+
 position:fixed;
 bottom:-400px;
 right:30px;
 width:260px;
 transition:1s;
 pointer-events:none;
+
 }
 
 .anime.show{
 bottom:0;
 }
 
+/* GLOW CURSOR */
+
+.cursor{
+
+position:fixed;
+width:18px;
+height:18px;
+
+border-radius:50%;
+
+background:#38bdf8;
+
+pointer-events:none;
+
+filter:blur(6px);
+
+}
+
 /* FOOTER */
 
 footer{
+
 text-align:center;
-padding:40px;
+padding:50px;
 color:#94a3b8;
+
 }
 
 </style>
 
 </head>
 
-
 <body>
+
+<div id="particles"></div>
+<canvas id="matrix"></canvas>
+<div class="cursor"></div>
 
 <nav>
 
 <h2>Yashu Bisht</h2>
 
 <div>
+
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
+
 </div>
 
 </nav>
@@ -224,7 +303,7 @@ color:#94a3b8;
 
 <div class="terminal">
 
-> booting developer profile... <br>
+> initializing developer profile... <br>
 > loading skills... <br>
 > website development ✔ <br>
 > telegram bots ✔
@@ -243,19 +322,20 @@ color:#94a3b8;
 <p>
 
 Hi, I'm <b>Yashu Bisht</b>.  
-I'm a <b>15 year old developer from Uttarakhand</b>.
+A 15-year-old developer from Uttarakhand.
 
-I like learning new coding skills every day.  
-I enjoy working with:
+I enjoy learning coding every day and building cool things online.
 
-• HTML and websites  
-• Creating Telegram bots  
-• Learning new coding tricks  
-• Building projects online  
+Things I like working with:
 
-Coding is something I practice daily because I enjoy creating things on the internet.
+• HTML websites  
+• Telegram bots  
+• experimenting with new tech  
+• building online projects
 
-And yes — I'm currently in a relationship ❤️.
+I believe learning something new every day makes you a better developer.
+
+Also yes — I'm in a relationship ❤️.
 
 </p>
 
@@ -273,7 +353,7 @@ And yes — I'm currently in a relationship ❤️.
 <div class="card">🌐 Website Development</div>
 <div class="card">🤖 Telegram Bots</div>
 <div class="card">⚡ Custom Coding</div>
-<div class="card">🚀 Learning New Tech</div>
+<div class="card">🚀 Learning New Technology</div>
 
 </div>
 
@@ -289,7 +369,7 @@ And yes — I'm currently in a relationship ❤️.
 <div class="card">
 
 <h3>Telegram Bots</h3>
-<p>Automation and selling bots.</p>
+<p>Automation bots and tools.</p>
 
 </div>
 
@@ -330,6 +410,7 @@ if(i<text.length){
 document.getElementById("typing").innerHTML+=text.charAt(i);
 
 i++;
+
 setTimeout(type,70);
 
 }
@@ -338,8 +419,7 @@ setTimeout(type,70);
 
 type();
 
-
-/* EXPLORE BUTTON */
+/* EXPLORE */
 
 function goAbout(){
 
@@ -347,14 +427,84 @@ document.getElementById("about").scrollIntoView({
 behavior:"smooth"
 });
 
-/* anime slide */
-
 document.getElementById("anime").classList.add("show");
 
 }
 
-</script>
+/* CURSOR */
 
+const cursor=document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.top=e.clientY+"px";
+cursor.style.left=e.clientX+"px";
+
+});
+
+/* MATRIX */
+
+const canvas=document.getElementById("matrix");
+const ctx=canvas.getContext("2d");
+
+canvas.height=window.innerHeight;
+canvas.width=window.innerWidth;
+
+const letters="01";
+const fontSize=14;
+const columns=canvas.width/fontSize;
+
+const drops=[];
+
+for(let x=0;x<columns;x++) drops[x]=1;
+
+function draw(){
+
+ctx.fillStyle="rgba(0,0,0,0.05)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="#0f0";
+ctx.font=fontSize+"px monospace";
+
+for(let i=0;i<drops.length;i++){
+
+const text=letters[Math.floor(Math.random()*letters.length)];
+
+ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
+drops[i]=0;
+
+drops[i]++;
+
+}
+
+}
+
+setInterval(draw,35);
+
+/* SECTION ANIMATION */
+
+const sections=document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+
+sections.forEach(sec=>{
+
+const top=window.scrollY;
+const offset=sec.offsetTop-400;
+
+if(top>offset){
+
+sec.classList.add("show");
+
+}
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
