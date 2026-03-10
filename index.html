@@ -3,343 +3,236 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yashu Bisht</title>
+<title>Yashu Bisht | Developer</title>
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-}
-
-/* BACKGROUND */
-
 body{
-
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-overflow:hidden;
-
-background:url("https://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg") no-repeat center center/cover;
-
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background:#0d1117;
+    color:#c9d1d9;
 }
 
-/* dark overlay */
+/* NAVBAR */
 
-body::before{
-
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.55);
-
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background:#161b22;
+    border-bottom:1px solid #30363d;
 }
 
-/* MAIN CARD */
-
-.container{
-
-position:relative;
-
-width:950px;
-padding:40px;
-
-border-radius:20px;
-
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(20px);
-
-box-shadow:0 25px 60px rgba(0,0,0,0.6);
-
-color:white;
-text-align:center;
-
+nav h1{
+    color:#58a6ff;
 }
 
-/* TITLE */
-
-h1{
-
-font-size:42px;
-letter-spacing:2px;
-margin-bottom:10px;
-
+nav a{
+    color:#c9d1d9;
+    text-decoration:none;
+    margin-left:20px;
+    transition:0.3s;
 }
 
-/* VIEWER */
+nav a:hover{
+    color:#58a6ff;
+}
 
-.live{
+/* HERO */
 
-margin:10px 0 20px 0;
+.hero{
+    height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    animation:fadeIn 1.5s ease;
+}
 
-display:inline-block;
-padding:8px 15px;
+.hero h2{
+    font-size:45px;
+}
 
-background:#ff3b3b;
-border-radius:20px;
+.hero span{
+    color:#58a6ff;
+}
 
-font-size:14px;
+/* BUTTON */
 
+.btn{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    background:#238636;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#2ea043;
+    transform:scale(1.05);
+}
+
+/* SECTIONS */
+
+section{
+    padding:80px 10%;
+}
+
+.card{
+    background:#161b22;
+    padding:25px;
+    border-radius:12px;
+    border:1px solid #30363d;
+    margin-top:20px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#58a6ff;
 }
 
 /* GRID */
 
 .grid{
-
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-
-margin-top:25px;
-
-}
-
-/* INFO CARDS */
-
-.card{
-
-background:rgba(255,255,255,0.08);
-
-padding:20px;
-
-border-radius:15px;
-
-transition:0.35s;
-
-border:1px solid rgba(255,255,255,0.1);
-
-}
-
-.card:hover{
-
-transform:translateY(-10px) scale(1.03);
-
-background:rgba(255,255,255,0.15);
-
-box-shadow:0 15px 30px rgba(0,0,0,0.5);
-
-}
-
-/* SOCIAL BUTTON AREA */
-
-.socials{
-
-margin-top:35px;
-
-}
-
-/* BUTTON STYLE */
-
-.socials a{
-
-position:relative;
-text-decoration:none;
-
-margin:8px;
-padding:12px 24px;
-
-border-radius:12px;
-
-font-weight:600;
-letter-spacing:0.5px;
-
-color:white;
-
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(10px);
-
-border:1px solid rgba(255,255,255,0.2);
-
-display:inline-block;
-
-transition:0.35s;
-
-overflow:hidden;
-
-}
-
-/* GLOW EFFECT */
-
-.socials a::before{
-
-content:"";
-position:absolute;
-
-top:0;
-left:-100%;
-
-width:100%;
-height:100%;
-
-background:linear-gradient(
-120deg,
-transparent,
-rgba(255,255,255,0.5),
-transparent
-);
-
-transition:0.6s;
-
-}
-
-.socials a:hover::before{
-
-left:100%;
-
-}
-
-.socials a:hover{
-
-transform:translateY(-4px) scale(1.05);
-
-box-shadow:
-0 0 15px rgba(255,255,255,0.6),
-0 0 30px rgba(255,255,255,0.4);
-
-background:rgba(255,255,255,0.2);
-
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
 }
 
 /* FOOTER */
 
-.footer{
-
-margin-top:25px;
-font-size:14px;
-opacity:0.8;
-
+footer{
+    text-align:center;
+    padding:20px;
+    border-top:1px solid #30363d;
 }
 
-/* FALLING PETALS */
+/* ANIMATION */
 
-.petal{
-
-position:absolute;
-width:8px;
-height:8px;
-
-background:pink;
-
-border-radius:50%;
-
-opacity:0.8;
-
-animation:fall linear infinite;
-
-}
-
-@keyframes fall{
-
-0%{transform:translateY(-10vh);}
-100%{transform:translateY(110vh);}
-
+@keyframes fadeIn{
+from{opacity:0; transform:translateY(20px);}
+to{opacity:1; transform:translateY(0);}
 }
 
 </style>
 </head>
 
+
 <body>
 
-<div class="container">
+<nav>
+<h1>Yashu.dev</h1>
 
-<h1>Yashu Bisht</h1>
-
-<div class="live">
-👀 <span id="viewer">20</span> people viewing this website
+<div>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
 </div>
 
-<p>Developer • Tech Enthusiast • Learning Everyday</p>
+</nav>
+
+
+<div class="hero">
+
+<div>
+<h2>Hello 👋<br>I am <span>Yashu Bisht</span></h2>
+
+<p>15 year old developer from Uttarakhand</p>
+
+<button class="btn">Explore My Work</button>
+
+</div>
+
+</div>
+
+
+<section id="about">
+
+<h2>About Me</h2>
+
+<div class="card">
+
+<p>
+My name is <b>Yashu Bisht</b>.  
+I am 15 years old and I belong to Uttarakhand, India.
+
+I love learning new coding techniques, building websites,
+creating Telegram bots, and working with custom systems.
+
+My goal is to become a powerful developer and create
+useful tools for people.
+</p>
+
+</div>
+
+</section>
+
+
+<section id="skills">
+
+<h2>Skills</h2>
+
+<div class="grid">
+
+<div class="card">🌐 Website Development</div>
+<div class="card">🤖 Telegram Bots</div>
+<div class="card">⚡ Custom Coding</div>
+<div class="card">💡 Learning New Tech</div>
+
+</div>
+
+</section>
+
+
+<section id="projects">
+
+<h2>Projects</h2>
 
 <div class="grid">
 
 <div class="card">
-<h3>About Me</h3>
-Age: 15<br>
-From: Uttarakhand<br>
-Learning coding & app development
+<h3>Telegram Bots</h3>
+<p>Custom bots for automation and selling services.</p>
 </div>
 
 <div class="card">
-<h3>Skills</h3>
-HTML<br>
-JavaScript<br>
-Cybersecurity
+<h3>Websites</h3>
+<p>Modern responsive websites with clean UI.</p>
 </div>
+
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<h2>Contact</h2>
 
 <div class="card">
-<h3>Projects</h3>
-100+ Websites<br>
-Coding experiments
-</div>
 
-<div class="card">
-<h3>Hobbies</h3>
-Coding<br>
-Anime edits<br>
-Exploring technology
-</div>
+<p>Want to work with me?</p>
 
-<div class="card">
-<h3>Relationship</h3>
-Unishtha Chhabra ❤️
-</div>
+<button class="btn">Contact Me</button>
 
 </div>
 
-<div class="socials">
+</section>
 
-<a href="https://instagram.com/yashubishtt" target="_blank">📸 Instagram</a>
 
-<a href="https://discord.com/users/yashubishtt" target="_blank">💬 Discord</a>
+<footer>
 
-<a href="https://snapchat.com/add/yashu_bishtt" target="_blank">👻 Snapchat</a>
+<p>© 2026 Yashu Bisht</p>
 
-<a href="https://open.spotify.com/user/31nyusfk7navaysi4nw7ubrdegve" target="_blank">🎧 Spotify</a>
-
-<a href="https://t.me/yashubisht01" target="_blank">✈ Telegram</a>
-
-</div>
-
-<div class="footer">
-Website by Yashu Bisht
-</div>
-
-</div>
-
-<script>
-
-/* LIVE VIEWER COUNTER */
-
-function updateViewers(){
-
-let v=Math.floor(Math.random()*40)+1;
-
-document.getElementById("viewer").innerText=v;
-
-}
-
-setInterval(updateViewers,1000);
-
-/* PETALS */
-
-for(let i=0;i<35;i++){
-
-let petal=document.createElement("div");
-petal.className="petal";
-
-petal.style.left=Math.random()*100+"vw";
-petal.style.animationDuration=(6+Math.random()*6)+"s";
-
-document.body.appendChild(petal);
-
-}
-
-</script>
+</footer>
 
 </body>
 </html>
