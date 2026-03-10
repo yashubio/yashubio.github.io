@@ -1,7 +1,8 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,13 +23,13 @@ html{
 scroll-behavior:smooth;
 }
 
-/* REAL ANIME BACKGROUND */
+/* BETTER ANIME BACKGROUND */
 
 body{
 
 background:
-linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
-url("https://images6.alphacoders.com/135/1350195.jpeg");
+linear-gradient(rgba(5,5,10,0.85),rgba(5,5,10,0.92)),
+url("https://images.alphacoders.com/121/1214019.jpg");
 
 background-size:cover;
 background-position:center;
@@ -45,9 +46,13 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
+
 padding:20px 8%;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(8px);
+
+background:rgba(0,0,0,0.5);
+
+backdrop-filter:blur(10px);
+
 position:sticky;
 top:0;
 
@@ -69,35 +74,9 @@ transition:.2s;
 
 }
 
-/* GLOW BUTTON STYLE */
+nav a:hover{
 
-button, .btn{
-
-padding:14px 32px;
-border-radius:10px;
-border:none;
-cursor:pointer;
-
-background:#38bdf8;
-color:white;
-
-transition:.25s;
-
-box-shadow:
-0 0 10px #38bdf8,
-0 0 20px #38bdf8,
-0 0 40px #38bdf8;
-
-}
-
-button:hover, .btn:hover{
-
-transform:scale(1.08);
-
-box-shadow:
-0 0 20px #38bdf8,
-0 0 40px #38bdf8,
-0 0 80px #6366f1;
+color:#38bdf8;
 
 }
 
@@ -106,10 +85,13 @@ box-shadow:
 .hero{
 
 height:90vh;
+
 display:flex;
 flex-direction:column;
+
 justify-content:center;
 align-items:center;
+
 text-align:center;
 
 }
@@ -134,7 +116,67 @@ color:#9ca3af;
 
 }
 
-/* SECTION */
+/* GLOW BUTTON */
+
+.btn{
+
+margin-top:25px;
+
+padding:14px 34px;
+
+border-radius:10px;
+
+border:none;
+
+cursor:pointer;
+
+background:#38bdf8;
+
+color:white;
+
+box-shadow:
+0 0 10px #38bdf8,
+0 0 20px #38bdf8,
+0 0 40px #38bdf8;
+
+transition:.2s;
+
+}
+
+.btn:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+0 0 20px #38bdf8,
+0 0 40px #38bdf8,
+0 0 80px #6366f1;
+
+}
+
+/* TERMINAL BOX */
+
+.terminal{
+
+background:#020617;
+
+border-radius:10px;
+
+padding:20px;
+
+margin-top:40px;
+
+font-family:monospace;
+
+width:80%;
+
+max-width:600px;
+
+color:#22c55e;
+
+}
+
+/* SECTIONS */
 
 section{
 
@@ -150,12 +192,14 @@ font-family:'Orbitron';
 
 }
 
-/* GRID */
+/* PROJECT GRID */
 
 .grid{
 
 display:grid;
+
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
 gap:25px;
 
 }
@@ -165,8 +209,11 @@ gap:25px;
 .card{
 
 background:rgba(20,20,30,0.8);
+
 padding:30px;
+
 border-radius:12px;
+
 transition:.25s;
 
 }
@@ -179,27 +226,46 @@ box-shadow:0 10px 30px rgba(0,0,0,0.6);
 
 }
 
+/* GITHUB STYLE GRID */
+
+.github{
+
+display:grid;
+
+grid-template-columns:repeat(20,14px);
+
+gap:6px;
+
+margin-top:20px;
+
+}
+
+.box{
+
+width:14px;
+height:14px;
+
+background:#1f2937;
+
+border-radius:3px;
+
+}
+
+.box:nth-child(3n){
+
+background:#22c55e;
+
+}
+
 /* FOOTER */
 
 footer{
 
 text-align:center;
+
 padding:40px;
+
 color:#94a3b8;
-
-}
-
-/* CURSOR GLOW */
-
-.cursor{
-
-position:fixed;
-width:18px;
-height:18px;
-border-radius:50%;
-background:#38bdf8;
-pointer-events:none;
-filter:blur(6px);
 
 }
 
@@ -210,17 +276,17 @@ filter:blur(6px);
 
 <body>
 
-<div class="cursor"></div>
 
 <nav>
 
-<h2>Yashu Bisht</h2>
+<h2>Yashu.dev</h2>
 
 <div>
 
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
+<a href="#github">GitHub</a>
 
 </div>
 
@@ -233,7 +299,16 @@ filter:blur(6px);
 
 <p id="typing"></p>
 
-<button class="btn">Explore My Work</button>
+<button class="btn">Explore</button>
+
+<div class="terminal">
+
+> loading developer profile... <br>
+> skills detected... <br>
+> website development ✔ <br>
+> telegram bots ✔
+
+</div>
 
 </div>
 
@@ -246,8 +321,11 @@ filter:blur(6px);
 
 <p>
 
-My name is Yashu Bisht. I am a 15 year old developer from Uttarakhand.
-I enjoy building websites, coding custom tools and creating Telegram bots.
+My name is Yashu Bisht.  
+I am a 15 year old developer from Uttarakhand.
+
+I enjoy learning coding, building websites,
+creating Telegram bots and experimenting with new technology.
 
 </p>
 
@@ -262,13 +340,13 @@ I enjoy building websites, coding custom tools and creating Telegram bots.
 
 <div class="grid">
 
-<div class="card">Website Development</div>
+<div class="card">🌐 Website Development</div>
 
-<div class="card">Telegram Bots</div>
+<div class="card">🤖 Telegram Bots</div>
 
-<div class="card">Custom Coding</div>
+<div class="card">⚡ Custom Coding</div>
 
-<div class="card">Learning New Tech</div>
+<div class="card">🚀 Learning New Tech</div>
 
 </div>
 
@@ -287,7 +365,7 @@ I enjoy building websites, coding custom tools and creating Telegram bots.
 
 <p>Automation and selling bots.</p>
 
-<button>View Project</button>
+<button class="btn">View</button>
 
 </div>
 
@@ -297,9 +375,26 @@ I enjoy building websites, coding custom tools and creating Telegram bots.
 
 <p>Modern responsive web development.</p>
 
-<button>View Project</button>
+<button class="btn">View</button>
 
 </div>
+
+</div>
+
+</section>
+
+
+<section id="github">
+
+<h2 class="title">GitHub Activity</h2>
+
+<div class="github">
+
+<div class="box"></div><div class="box"></div><div class="box"></div>
+<div class="box"></div><div class="box"></div><div class="box"></div>
+<div class="box"></div><div class="box"></div><div class="box"></div>
+<div class="box"></div><div class="box"></div><div class="box"></div>
+<div class="box"></div><div class="box"></div><div class="box"></div>
 
 </div>
 
@@ -317,40 +412,29 @@ I enjoy building websites, coding custom tools and creating Telegram bots.
 
 /* TYPING EFFECT */
 
-const text = "Developer • Bot Creator • Website Builder";
+const text="Developer • Bot Creator • Website Builder";
 
-let i = 0;
+let i=0;
 
-function typing(){
+function type(){
 
-if(i < text.length){
+if(i<text.length){
 
-document.getElementById("typing").innerHTML += text.charAt(i);
+document.getElementById("typing").innerHTML+=text.charAt(i);
 
 i++;
 
-setTimeout(typing,60);
+setTimeout(type,70);
 
 }
 
 }
 
-typing();
-
-
-/* CURSOR GLOW */
-
-const cursor = document.querySelector(".cursor");
-
-document.addEventListener("mousemove",(e)=>{
-
-cursor.style.top = e.clientY + "px";
-cursor.style.left = e.clientX + "px";
-
-});
+type();
 
 </script>
 
 
 </body>
 </html>
+```
