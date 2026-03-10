@@ -10,6 +10,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 <style>
 
 *{
@@ -23,198 +25,118 @@ html{
 scroll-behavior:smooth;
 }
 
-/* BACKGROUND */
-
 body{
-
 background:linear-gradient(270deg,#050816,#020617,#0f172a);
 background-size:600% 600%;
-
 animation:bgmove 15s infinite;
-
 color:white;
-
 }
 
 @keyframes bgmove{
-
 0%{background-position:0% 50%;}
 50%{background-position:100% 50%;}
 100%{background-position:0% 50%;}
-
 }
 
 /* NAVBAR */
 
 nav{
-
 display:flex;
 justify-content:space-between;
 align-items:center;
-
 padding:20px 8%;
-
 background:rgba(255,255,255,0.05);
-
 backdrop-filter:blur(10px);
-
 position:sticky;
 top:0;
-
 }
 
 nav h2{
-
 font-family:Orbitron;
 color:#38bdf8;
-
 }
 
 nav a{
-
 color:#cbd5f5;
 margin-left:25px;
 text-decoration:none;
-
 }
 
 nav a:hover{
-
 color:#38bdf8;
-
 }
 
 /* HERO */
 
 .hero{
-
 height:100vh;
-
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-
 text-align:center;
-
 }
 
 .hero h1{
-
 font-size:70px;
 font-family:Orbitron;
-
 }
 
 .hero span{
-
 color:#38bdf8;
-
 }
 
 /* BUTTON */
 
 .btn{
-
-margin-top:30px;
-
+margin-top:25px;
 padding:14px 40px;
-
 border:none;
-
 border-radius:8px;
-
 background:#38bdf8;
-
 color:white;
-
 cursor:pointer;
-
 box-shadow:0 0 20px #38bdf8;
-
 transition:.3s;
-
 }
 
 .btn:hover{
-
 transform:scale(1.1);
-
 box-shadow:0 0 40px #38bdf8;
-
 }
 
 /* TERMINAL */
 
 .terminal{
-
 background:#020617;
-
 margin-top:40px;
-
 padding:25px;
-
 border-radius:10px;
-
 font-family:monospace;
-
 color:#22c55e;
-
 width:80%;
 max-width:600px;
-
 text-align:left;
-
 }
 
 /* SECTIONS */
 
 section{
-
 padding:100px 10%;
-
 }
 
 .title{
-
 font-size:32px;
 font-family:Orbitron;
 margin-bottom:30px;
-
-}
-
-/* GRID */
-
-.grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-
 }
 
 /* CARDS */
 
 .card{
-
 background:rgba(255,255,255,0.05);
-
 padding:30px;
-
 border-radius:12px;
-
-transition:.3s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 10px 30px rgba(0,0,0,0.5);
-
 }
 
 /* CONTACT */
@@ -235,20 +157,32 @@ color:white;
 }
 
 #contact textarea{
-
 height:120px;
 resize:none;
+}
+
+/* NOTIFICATION */
+
+#notify{
+
+position:fixed;
+bottom:30px;
+right:30px;
+
+background:#22c55e;
+
+padding:15px 25px;
+
+border-radius:8px;
+
+display:none;
 
 }
 
-/* FOOTER */
-
 footer{
-
 text-align:center;
 padding:40px;
 color:#94a3b8;
-
 }
 
 </style>
@@ -264,8 +198,6 @@ color:#94a3b8;
 <div>
 
 <a href="#about">About</a>
-<a href="#skills">Skills</a>
-<a href="#projects">Projects</a>
 <a href="#contact">Contact</a>
 
 </div>
@@ -301,63 +233,11 @@ color:#94a3b8;
 
 <p>
 
-Hi I'm <b>Yashu Bisht</b>, a 15 year old developer from Uttarakhand.
+Hi I'm <b>Yashu Bisht</b>, a 15 year old developer.
 
-I enjoy learning coding every day and building things online.
-
-Things I like working with:
-
-• HTML Websites  
-• Telegram Bots  
-• Learning New Tech  
-• Creating Projects
-
-I'm always trying to improve my developer skills.
+I enjoy learning coding every day and building projects online.
 
 </p>
-
-</div>
-
-</section>
-
-
-<section id="skills">
-
-<h2 class="title">Skills</h2>
-
-<div class="grid">
-
-<div class="card">🌐 Website Development</div>
-<div class="card">🤖 Telegram Bots</div>
-<div class="card">⚡ Coding</div>
-<div class="card">🚀 Learning New Technology</div>
-
-</div>
-
-</section>
-
-
-<section id="projects">
-
-<h2 class="title">Projects</h2>
-
-<div class="grid">
-
-<div class="card">
-
-<h3>Telegram Bots</h3>
-
-<p>Automation bots and tools.</p>
-
-</div>
-
-<div class="card">
-
-<h3>Websites</h3>
-
-<p>Modern responsive websites.</p>
-
-</div>
 
 </div>
 
@@ -371,22 +251,27 @@ I'm always trying to improve my developer skills.
 <div class="card">
 
 <p style="margin-bottom:20px;">
-📧 Email me directly: <b>yashuubishtt@gmail.com</b>
+📧 Email: <b>yashuubishtt@gmail.com</b>
 </p>
 
-<form onsubmit="sendMail(); return false;">
+<form id="contact-form">
 
-<input type="email" id="userEmail" placeholder="Your Email" required>
+<input type="email" name="user_email" placeholder="Your Email" required>
 
-<textarea id="message" placeholder="Your Message" required></textarea>
+<textarea name="message" placeholder="Your Message" required></textarea>
 
-<button class="btn">Text Me</button>
+<button class="btn" type="submit">Send Message</button>
 
 </form>
 
 </div>
 
 </section>
+
+
+<div id="notify">
+Message sent! They will reply soon.
+</div>
 
 
 <footer>
@@ -397,6 +282,35 @@ I'm always trying to improve my developer skills.
 
 
 <script>
+
+/* EMAILJS INIT */
+
+(function(){
+emailjs.init("YOUR_PUBLIC_KEY");
+})();
+
+/* SEND EMAIL */
+
+document.getElementById("contact-form")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+emailjs.sendForm("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",this)
+
+.then(function(){
+
+document.getElementById("notify").style.display="block";
+
+setTimeout(()=>{
+document.getElementById("notify").style.display="none";
+},4000);
+
+});
+
+});
+
+/* TYPING */
 
 const text="Developer • Bot Creator • Website Builder";
 
@@ -417,19 +331,6 @@ setTimeout(type,70);
 }
 
 type();
-
-function sendMail(){
-
-let email=document.getElementById("userEmail").value;
-let message=document.getElementById("message").value;
-
-let link="mailto:yashuubishtt@gmail.com"
-+"?subject=Message from "+email
-+"&body="+message;
-
-window.location.href=link;
-
-}
 
 </script>
 
