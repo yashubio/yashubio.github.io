@@ -8,7 +8,7 @@
 
 <title>Yashu Bisht | Developer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
 
@@ -16,68 +16,72 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Inter',sans-serif;
+font-family:Poppins;
 }
 
 html{
 scroll-behavior:smooth;
 }
 
+/* BACKGROUND */
+
 body{
 
-background:#05070f;
+background:linear-gradient(270deg,#050816,#020617,#0f172a);
+background-size:600% 600%;
+
+animation:bgmove 15s infinite;
+
 color:white;
-overflow-x:hidden;
 
 }
 
-/* PARTICLES */
+@keyframes bgmove{
 
-#particles{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-2;
-}
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 
-/* MATRIX */
-
-#matrix{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
-opacity:.15;
 }
 
 /* NAVBAR */
 
 nav{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:22px 8%;
-background:rgba(0,0,0,0.5);
+
+padding:20px 8%;
+
+background:rgba(255,255,255,0.05);
+
 backdrop-filter:blur(10px);
+
 position:sticky;
 top:0;
+
 }
 
 nav h2{
-font-family:'Orbitron';
+
+font-family:Orbitron;
 color:#38bdf8;
-letter-spacing:2px;
+
 }
 
 nav a{
+
 color:#cbd5f5;
-text-decoration:none;
 margin-left:25px;
-transition:.25s;
+text-decoration:none;
+
 }
 
 nav a:hover{
+
 color:#38bdf8;
+
 }
 
 /* HERO */
@@ -85,62 +89,58 @@ color:#38bdf8;
 .hero{
 
 height:100vh;
+
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
+
 text-align:center;
 
 }
 
 .hero h1{
-font-size:75px;
-font-family:'Orbitron';
+
+font-size:70px;
+font-family:Orbitron;
+
 }
 
 .hero span{
+
 color:#38bdf8;
+
 }
 
-.hero p{
-margin-top:10px;
-color:#9ca3af;
-}
-
-/* ELITE BUTTON */
+/* BUTTON */
 
 .btn{
 
 margin-top:30px;
-padding:15px 40px;
 
-border-radius:10px;
+padding:14px 40px;
+
 border:none;
-cursor:pointer;
+
+border-radius:8px;
 
 background:#38bdf8;
+
 color:white;
 
-font-size:16px;
+cursor:pointer;
 
-box-shadow:
-0 0 10px #38bdf8,
-0 0 25px #38bdf8,
-0 0 60px #38bdf8;
+box-shadow:0 0 20px #38bdf8;
 
-animation:pulse 2s infinite;
+transition:.3s;
 
 }
 
 .btn:hover{
+
 transform:scale(1.1);
-}
 
-@keyframes pulse{
-
-0%{box-shadow:0 0 10px #38bdf8;}
-50%{box-shadow:0 0 50px #38bdf8;}
-100%{box-shadow:0 0 10px #38bdf8;}
+box-shadow:0 0 40px #38bdf8;
 
 }
 
@@ -150,47 +150,36 @@ transform:scale(1.1);
 
 background:#020617;
 
-border-radius:12px;
+margin-top:40px;
 
 padding:25px;
 
-margin-top:40px;
+border-radius:10px;
 
 font-family:monospace;
 
-width:80%;
-max-width:650px;
-
 color:#22c55e;
+
+width:80%;
+max-width:600px;
 
 text-align:left;
 
 }
 
-/* SECTION */
+/* SECTIONS */
 
 section{
 
-padding:120px 10%;
-
-opacity:0;
-transform:translateY(50px);
-transition:1s;
-
-}
-
-section.show{
-
-opacity:1;
-transform:translateY(0);
+padding:100px 10%;
 
 }
 
 .title{
 
-font-size:34px;
-margin-bottom:40px;
-font-family:'Orbitron';
+font-size:32px;
+font-family:Orbitron;
+margin-bottom:30px;
 
 }
 
@@ -199,7 +188,9 @@ font-family:'Orbitron';
 .grid{
 
 display:grid;
+
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
 gap:25px;
 
 }
@@ -208,9 +199,11 @@ gap:25px;
 
 .card{
 
-background:rgba(20,20,30,0.85);
+background:rgba(255,255,255,0.05);
+
 padding:30px;
-border-radius:14px;
+
+border-radius:12px;
 
 transition:.3s;
 
@@ -218,43 +211,33 @@ transition:.3s;
 
 .card:hover{
 
-transform:translateY(-12px) scale(1.05);
-box-shadow:0 10px 40px rgba(0,0,0,0.8);
+transform:translateY(-10px);
+
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
 
 }
 
-/* ANIME CHARACTER */
+/* CONTACT */
 
-.anime{
+#contact input,
+#contact textarea{
 
-position:fixed;
-bottom:-400px;
-right:30px;
-width:260px;
-transition:1s;
-pointer-events:none;
+width:100%;
+padding:12px;
+margin-bottom:15px;
+
+border:none;
+border-radius:6px;
+
+background:#020617;
+color:white;
 
 }
 
-.anime.show{
-bottom:0;
-}
+#contact textarea{
 
-/* GLOW CURSOR */
-
-.cursor{
-
-position:fixed;
-width:18px;
-height:18px;
-
-border-radius:50%;
-
-background:#38bdf8;
-
-pointer-events:none;
-
-filter:blur(6px);
+height:120px;
+resize:none;
 
 }
 
@@ -263,7 +246,7 @@ filter:blur(6px);
 footer{
 
 text-align:center;
-padding:50px;
+padding:40px;
 color:#94a3b8;
 
 }
@@ -274,10 +257,6 @@ color:#94a3b8;
 
 <body>
 
-<div id="particles"></div>
-<canvas id="matrix"></canvas>
-<div class="cursor"></div>
-
 <nav>
 
 <h2>Yashu Bisht</h2>
@@ -287,6 +266,7 @@ color:#94a3b8;
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
 
 </div>
 
@@ -299,7 +279,7 @@ color:#94a3b8;
 
 <p id="typing"></p>
 
-<button class="btn" onclick="goAbout()">Explore</button>
+<button class="btn" onclick="document.getElementById('about').scrollIntoView()">Explore</button>
 
 <div class="terminal">
 
@@ -321,21 +301,18 @@ color:#94a3b8;
 
 <p>
 
-Hi, I'm <b>Yashu Bisht</b>.  
-A 15-year-old developer from Uttarakhand.
+Hi I'm <b>Yashu Bisht</b>, a 15 year old developer from Uttarakhand.
 
-I enjoy learning coding every day and building cool things online.
+I enjoy learning coding every day and building things online.
 
 Things I like working with:
 
-• HTML websites  
-• Telegram bots  
-• experimenting with new tech  
-• building online projects
+• HTML Websites  
+• Telegram Bots  
+• Learning New Tech  
+• Creating Projects
 
-I believe learning something new every day makes you a better developer.
-
-Also yes — I'm in a relationship ❤️.
+I'm always trying to improve my developer skills.
 
 </p>
 
@@ -352,7 +329,7 @@ Also yes — I'm in a relationship ❤️.
 
 <div class="card">🌐 Website Development</div>
 <div class="card">🤖 Telegram Bots</div>
-<div class="card">⚡ Custom Coding</div>
+<div class="card">⚡ Coding</div>
 <div class="card">🚀 Learning New Technology</div>
 
 </div>
@@ -369,6 +346,7 @@ Also yes — I'm in a relationship ❤️.
 <div class="card">
 
 <h3>Telegram Bots</h3>
+
 <p>Automation bots and tools.</p>
 
 </div>
@@ -376,9 +354,35 @@ Also yes — I'm in a relationship ❤️.
 <div class="card">
 
 <h3>Websites</h3>
-<p>Modern responsive web development.</p>
+
+<p>Modern responsive websites.</p>
 
 </div>
+
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<h2 class="title">Want To Talk With Me?</h2>
+
+<div class="card">
+
+<p style="margin-bottom:20px;">
+📧 Email me directly: <b>yashuubishtt@gmail.com</b>
+</p>
+
+<form onsubmit="sendMail(); return false;">
+
+<input type="email" id="userEmail" placeholder="Your Email" required>
+
+<textarea id="message" placeholder="Your Message" required></textarea>
+
+<button class="btn">Text Me</button>
+
+</form>
 
 </div>
 
@@ -392,12 +396,7 @@ Also yes — I'm in a relationship ❤️.
 </footer>
 
 
-<img id="anime" class="anime" src="https://pngimg.com/uploads/anime/anime_PNG45.png">
-
-
 <script>
-
-/* TYPING EFFECT */
 
 const text="Developer • Bot Creator • Website Builder";
 
@@ -419,90 +418,18 @@ setTimeout(type,70);
 
 type();
 
-/* EXPLORE */
+function sendMail(){
 
-function goAbout(){
+let email=document.getElementById("userEmail").value;
+let message=document.getElementById("message").value;
 
-document.getElementById("about").scrollIntoView({
-behavior:"smooth"
-});
+let link="mailto:yashuubishtt@gmail.com"
++"?subject=Message from "+email
++"&body="+message;
 
-document.getElementById("anime").classList.add("show");
-
-}
-
-/* CURSOR */
-
-const cursor=document.querySelector(".cursor");
-
-document.addEventListener("mousemove",(e)=>{
-
-cursor.style.top=e.clientY+"px";
-cursor.style.left=e.clientX+"px";
-
-});
-
-/* MATRIX */
-
-const canvas=document.getElementById("matrix");
-const ctx=canvas.getContext("2d");
-
-canvas.height=window.innerHeight;
-canvas.width=window.innerWidth;
-
-const letters="01";
-const fontSize=14;
-const columns=canvas.width/fontSize;
-
-const drops=[];
-
-for(let x=0;x<columns;x++) drops[x]=1;
-
-function draw(){
-
-ctx.fillStyle="rgba(0,0,0,0.05)";
-ctx.fillRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle="#0f0";
-ctx.font=fontSize+"px monospace";
-
-for(let i=0;i<drops.length;i++){
-
-const text=letters[Math.floor(Math.random()*letters.length)];
-
-ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-
-if(drops[i]*fontSize>canvas.height && Math.random()>0.975)
-drops[i]=0;
-
-drops[i]++;
+window.location.href=link;
 
 }
-
-}
-
-setInterval(draw,35);
-
-/* SECTION ANIMATION */
-
-const sections=document.querySelectorAll("section");
-
-window.addEventListener("scroll",()=>{
-
-sections.forEach(sec=>{
-
-const top=window.scrollY;
-const offset=sec.offsetTop-400;
-
-if(top>offset){
-
-sec.classList.add("show");
-
-}
-
-});
-
-});
 
 </script>
 
