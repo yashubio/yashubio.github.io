@@ -134,7 +134,9 @@ animation:fall linear infinite;
 
 <h1>Yashu Bisht</h1>
 
-<div class="live">100 people are viewing this website</div>
+<div class="live">
+👀 <span id="viewer">25</span> people viewing this website
+</div>
 
 <p class="subtitle">Developer • Tech Enthusiast • Learning Everyday</p>
 
@@ -216,19 +218,31 @@ Website by Yashu Bisht
 
 <script>
 
+/* falling petals */
+
 for(let i=0;i<30;i++){
 
 let petal=document.createElement("div");
-
 petal.className="petal";
 
 petal.style.left=Math.random()*100+"vw";
-
 petal.style.animationDuration=(6+Math.random()*8)+"s";
 
 document.body.appendChild(petal);
 
 }
+
+/* fake live viewer counter */
+
+function updateViewers(){
+
+let viewers=Math.floor(Math.random()*50)+1;
+
+document.getElementById("viewer").innerText=viewers;
+
+}
+
+setInterval(updateViewers,1000);
 
 </script>
 
