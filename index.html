@@ -14,7 +14,7 @@ box-sizing:border-box;
 font-family:'Segoe UI',sans-serif;
 }
 
-/* ANIME BACKGROUND */
+/* BACKGROUND */
 
 body{
 
@@ -28,7 +28,7 @@ background:url("https://cdn.wallpapersafari.com/13/6/Mpsg2b.jpg") no-repeat cent
 
 }
 
-/* DARK OVERLAY */
+/* dark overlay */
 
 body::before{
 
@@ -125,34 +125,71 @@ box-shadow:0 15px 30px rgba(0,0,0,0.5);
 
 }
 
-/* SOCIAL BUTTONS */
+/* SOCIAL BUTTON AREA */
 
 .socials{
 
-margin-top:30px;
+margin-top:35px;
 
 }
 
+/* BUTTON STYLE */
+
 .socials a{
 
+position:relative;
 text-decoration:none;
 
-margin:6px;
-padding:12px 20px;
+margin:8px;
+padding:12px 24px;
 
-border-radius:10px;
+border-radius:12px;
 
-background:linear-gradient(45deg,#6366f1,#9333ea);
+font-weight:600;
+letter-spacing:0.5px;
 
 color:white;
 
-font-weight:bold;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,0.2);
 
 display:inline-block;
 
-transition:0.25s;
+transition:0.35s;
 
-box-shadow:0 5px 15px rgba(0,0,0,0.4);
+overflow:hidden;
+
+}
+
+/* GLOW EFFECT */
+
+.socials a::before{
+
+content:"";
+position:absolute;
+
+top:0;
+left:-100%;
+
+width:100%;
+height:100%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.5),
+transparent
+);
+
+transition:0.6s;
+
+}
+
+.socials a:hover::before{
+
+left:100%;
 
 }
 
@@ -160,7 +197,11 @@ box-shadow:0 5px 15px rgba(0,0,0,0.4);
 
 transform:translateY(-4px) scale(1.05);
 
-background:linear-gradient(45deg,#9333ea,#6366f1);
+box-shadow:
+0 0 15px rgba(255,255,255,0.6),
+0 0 30px rgba(255,255,255,0.4);
+
+background:rgba(255,255,255,0.2);
 
 }
 
@@ -252,15 +293,15 @@ Unishtha Chhabra ❤️
 
 <div class="socials">
 
-<a href="https://instagram.com/yashubishtt" target="_blank">Instagram</a>
+<a href="https://instagram.com/yashubishtt" target="_blank">📸 Instagram</a>
 
-<a href="https://discord.com/users/yashubishtt" target="_blank">Discord</a>
+<a href="https://discord.com/users/yashubishtt" target="_blank">💬 Discord</a>
 
-<a href="https://snapchat.com/add/yashu_bishtt" target="_blank">Snapchat</a>
+<a href="https://snapchat.com/add/yashu_bishtt" target="_blank">👻 Snapchat</a>
 
-<a href="https://open.spotify.com/user/31nyusfk7navaysi4nw7ubrdegve" target="_blank">Spotify</a>
+<a href="https://open.spotify.com/user/31nyusfk7navaysi4nw7ubrdegve" target="_blank">🎧 Spotify</a>
 
-<a href="https://t.me/yashubisht01" target="_blank">Telegram</a>
+<a href="https://t.me/yashubisht01" target="_blank">✈ Telegram</a>
 
 </div>
 
