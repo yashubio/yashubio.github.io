@@ -1,9 +1,9 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Yashu Bisht | Hacker Console</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yashu Bisht</title>
 
 <style>
 
@@ -11,91 +11,118 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:monospace;
+font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-background:black;
-color:#00ff9c;
-overflow:hidden;
-}
-
-canvas{
-position:fixed;
-top:0;
-left:0;
-z-index:-1;
-}
-
-.main{
 height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
+overflow:hidden;
+color:white;
+background:linear-gradient(-45deg,#89f7fe,#66a6ff,#c3cfe2,#fbc2eb);
+background-size:400% 400%;
+animation:bgmove 15s ease infinite;
 }
 
-.panel{
-width:750px;
-background:rgba(0,0,0,0.8);
-border:1px solid #00ff9c;
-border-radius:10px;
-padding:35px;
-box-shadow:0 0 25px #00ff9c;
+@keyframes bgmove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.container{
+width:900px;
+padding:40px;
+border-radius:22px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(16px);
+border:1px solid rgba(255,255,255,0.25);
+box-shadow:0 20px 60px rgba(0,0,0,0.2);
 }
 
 h1{
-font-size:32px;
-margin-bottom:20px;
-text-shadow:0 0 10px #00ff9c;
-}
-
-.section{
-margin-top:25px;
-}
-
-.section h2{
-font-size:20px;
+font-size:40px;
 margin-bottom:10px;
-color:#00ff9c;
+color:#1f2937;
 }
 
-.typing{
-overflow:hidden;
-white-space:nowrap;
-border-right:3px solid #00ff9c;
-animation:typing 4s steps(40,end),blink .7s infinite;
+.subtitle{
+color:#374151;
+margin-bottom:20px;
 }
 
-@keyframes typing{
-from{width:0}
-to{width:100%}
+.live{
+background:#ff4d6d;
+color:white;
+padding:6px 14px;
+border-radius:20px;
+font-size:14px;
+display:inline-block;
+margin-bottom:25px;
 }
 
-@keyframes blink{
-50%{border-color:transparent}
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
 }
 
-.skill{
-margin-top:10px;
+.card{
+background:rgba(255,255,255,0.3);
+padding:20px;
+border-radius:16px;
+transition:0.3s;
+color:#1f2937;
 }
 
-.bar{
+.card:hover{
+transform:translateY(-6px) scale(1.03);
+background:rgba(255,255,255,0.45);
+}
+
+.socials{
+margin-top:30px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.socials a{
+text-decoration:none;
+color:white;
+padding:12px 22px;
+border-radius:12px;
+font-weight:600;
+background:linear-gradient(45deg,#ff7eb3,#6a5cff);
+transition:.25s;
+}
+
+.socials a:hover{
+transform:translateY(-5px) scale(1.08);
+}
+
+.footer{
+margin-top:25px;
+text-align:center;
+color:#374151;
+}
+
+.petal{
+position:absolute;
+width:8px;
 height:8px;
-background:#003d2c;
-border-radius:5px;
-margin-top:4px;
+background:#ffc0cb;
+border-radius:50%;
+opacity:.8;
+animation:fall linear infinite;
 }
 
-.fill{
-height:8px;
-background:#00ff9c;
-border-radius:5px;
-animation:load 3s forwards;
-}
-
-@keyframes load{
-from{width:0}
-to{width:90%}
+@keyframes fall{
+0%{transform:translateY(-10vh) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
 }
 
 </style>
@@ -103,105 +130,107 @@ to{width:90%}
 
 <body>
 
-<canvas id="matrix"></canvas>
+<div class="container">
 
-<div class="main">
+<h1>Yashu Bisht</h1>
 
-<div class="panel">
+<div class="live">100 people are viewing this website</div>
 
-<h1 class="typing">> Initializing Yashu_Bisht_System...</h1>
+<p class="subtitle">Developer • Tech Enthusiast • Learning Everyday</p>
 
-<div class="section">
+<div class="grid">
+
+<div class="card">
 <h2>About Me</h2>
-<p>Name: Yashu Bisht</p>
-<p>Age: 15</p>
-<p>Location: Uttarakhand, India</p>
-<p>Status: Coding & App Development</p>
+<p>
+Age: 15<br>
+From: Uttarakhand<br>
+Learning coding & app development
+</p>
 </div>
 
-<div class="section">
+<div class="card">
 <h2>Skills</h2>
-
-<div class="skill">
-HTML
-<div class="bar"><div class="fill"></div></div>
-</div>
-
-<div class="skill">
-JavaScript
-<div class="bar"><div class="fill"></div></div>
-</div>
-
-<div class="skill">
+<p>
+HTML<br>
+JavaScript<br>
 Cybersecurity
-<div class="bar"><div class="fill"></div></div>
+</p>
 </div>
 
-</div>
-
-<div class="section">
+<div class="card">
 <h2>Projects</h2>
-<p>100+ Websites</p>
-<p>Apps & Coding Experiments</p>
+<p>
+100+ Websites<br>
+Coding experiments
+</p>
 </div>
 
-<div class="section">
+<div class="card">
 <h2>Hobbies</h2>
-<p>Coding</p>
-<p>App Development</p>
-<p>Learning Cybersecurity</p>
+<p>
+Coding<br>
+Anime edits<br>
+Exploring technology
+</p>
 </div>
 
+<div class="card">
+<h2>Relationship</h2>
+<p>
+Unishtha Chhabra ❤️
+</p>
+</div>
+
+</div>
+
+<br>
+
+<iframe style="border-radius:12px"
+src="https://open.spotify.com/embed/user/31nyusfk7navaysi4nw7ubrdegve"
+width="100%"
+height="80"
+frameBorder="0"
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+</iframe>
+
+<div class="socials">
+
+<a href="https://instagram.com/yashubishtt" target="_blank">Instagram</a>
+
+<a href="https://discord.com/users/yashubishtt" target="_blank">Discord</a>
+
+<a href="https://snapchat.com/add/yashu_bishtt" target="_blank">Snapchat</a>
+
+<a href="https://open.spotify.com/user/31nyusfk7navaysi4nw7ubrdegve" target="_blank">Spotify</a>
+
+<a href="https://t.me/yashubisht01" target="_blank">Telegram</a>
+
+</div>
+
+<div class="footer">
+Website by Yashu Bisht
 </div>
 
 </div>
 
 <script>
 
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
+for(let i=0;i<30;i++){
 
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
+let petal=document.createElement("div");
 
-let letters = "01";
-letters = letters.split("");
+petal.className="petal";
 
-let fontSize = 14;
-let columns = canvas.width / fontSize;
+petal.style.left=Math.random()*100+"vw";
 
-let drops = [];
+petal.style.animationDuration=(6+Math.random()*8)+"s";
 
-for(let x = 0; x < columns; x++)
-drops[x] = 1;
-
-function draw(){
-
-ctx.fillStyle = "rgba(0,0,0,0.05)";
-ctx.fillRect(0,0,canvas.width,canvas.height);
-
-ctx.fillStyle = "#0f0";
-ctx.font = fontSize + "px monospace";
-
-for(let i = 0; i < drops.length; i++){
-
-let text = letters[Math.floor(Math.random()*letters.length)];
-
-ctx.fillText(text,i*fontSize,drops[i]*fontSize);
-
-if(drops[i]*fontSize > canvas.height && Math.random() > 0.975)
-drops[i] = 0;
-
-drops[i]++;
+document.body.appendChild(petal);
 
 }
-
-}
-
-setInterval(draw,33);
 
 </script>
 
 </body>
 </html>
-```
