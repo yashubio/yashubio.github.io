@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Yashu Bisht | Developer</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -26,7 +28,7 @@ scroll-behavior:smooth;
 body{
 
 background:
-linear-gradient(rgba(10,10,15,0.75), rgba(10,10,15,0.85)),
+linear-gradient(rgba(5,5,10,0.75), rgba(5,5,10,0.85)),
 url("https://wallpaperaccess.com/full/31193.jpg");
 
 background-size:cover;
@@ -34,6 +36,7 @@ background-position:center;
 background-attachment:fixed;
 
 color:white;
+overflow-x:hidden;
 
 }
 
@@ -49,12 +52,16 @@ background:rgba(0,0,0,0.6);
 backdrop-filter:blur(8px);
 position:sticky;
 top:0;
+z-index:10;
 
 }
 
 nav h2{
-font-weight:600;
-letter-spacing:1px;
+
+font-family:'Orbitron';
+letter-spacing:2px;
+color:#38bdf8;
+
 }
 
 nav a{
@@ -63,7 +70,7 @@ color:#cbd5f5;
 text-decoration:none;
 margin-left:25px;
 font-size:14px;
-transition:0.2s;
+transition:.2s;
 
 }
 
@@ -83,15 +90,13 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
-
-animation:fade 1s ease;
 
 }
 
 .hero h1{
 
-font-size:60px;
+font-size:70px;
+font-family:'Orbitron';
 
 }
 
@@ -104,51 +109,53 @@ color:#38bdf8;
 .hero p{
 
 margin-top:10px;
-color:#94a3b8;
+color:#9ca3af;
+font-size:18px;
 
 }
 
-/* COOL BUTTON */
+/* NEON BUTTON */
 
 .btn{
 
-margin-top:25px;
-padding:14px 32px;
+margin-top:30px;
+padding:14px 34px;
+border-radius:10px;
 border:none;
-border-radius:8px;
-font-size:16px;
 cursor:pointer;
 
 background:linear-gradient(45deg,#38bdf8,#6366f1);
-
 color:white;
+font-size:16px;
 
-transition:0.2s;
+transition:.2s;
 
 }
 
 .btn:hover{
 
-transform:translateY(-4px) scale(1.05);
+transform:scale(1.08);
 
-box-shadow:0 10px 25px rgba(56,189,248,0.6);
+box-shadow:
+0 0 10px #38bdf8,
+0 0 25px #38bdf8,
+0 0 50px #6366f1;
 
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
 
-padding:90px 10%;
+padding:100px 10%;
 
 }
-
-/* TITLE */
 
 .title{
 
 font-size:32px;
 margin-bottom:30px;
+font-family:'Orbitron';
 
 }
 
@@ -162,22 +169,25 @@ gap:25px;
 
 }
 
-/* CARDS */
+/* COOL CARDS */
 
 .card{
 
-background:rgba(20,20,30,0.75);
+background:rgba(20,20,30,0.8);
 padding:30px;
 border-radius:12px;
 
-transition:0.2s;
+transition:.25s;
+
+transform-style:preserve-3d;
 
 }
 
 .card:hover{
 
-transform:translateY(-8px);
-background:rgba(30,30,40,0.85);
+transform:rotateX(5deg) rotateY(-5deg) scale(1.05);
+
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
 
 }
 
@@ -191,36 +201,40 @@ color:#94a3b8;
 
 }
 
-/* ANIMATION */
+/* CURSOR GLOW */
 
-@keyframes fade{
+.cursor{
 
-from{
-opacity:0;
-transform:translateY(30px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
+position:fixed;
+width:20px;
+height:20px;
+border-radius:50%;
+background:#38bdf8;
+pointer-events:none;
+mix-blend-mode:screen;
+filter:blur(8px);
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
+<div class="cursor"></div>
+
 <nav>
 
-<h2>Yashu Bisht</h2>
+<h2>Yashu.dev</h2>
 
 <div>
+
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
+
 </div>
 
 </nav>
@@ -230,7 +244,7 @@ transform:translateY(0);
 
 <h1>Hello I'm <span>Yashu</span></h1>
 
-<p>15 Year Old Developer • Uttarakhand</p>
+<p id="typing"></p>
 
 <button class="btn">Explore My Work</button>
 
@@ -244,9 +258,10 @@ transform:translateY(0);
 <div class="card">
 
 <p>
-My name is Yashu Bisht. I enjoy learning coding,
-building websites, creating Telegram bots and exploring
-new technologies.
+
+My name is Yashu Bisht. I am a 15 year old developer from Uttarakhand.
+I enjoy building websites, coding custom tools and creating Telegram bots.
+
 </p>
 
 </div>
@@ -260,13 +275,13 @@ new technologies.
 
 <div class="grid">
 
-<div class="card">Website Development</div>
+<div class="card">🌐 Website Development</div>
 
-<div class="card">Telegram Bots</div>
+<div class="card">🤖 Telegram Bots</div>
 
-<div class="card">Custom Coding</div>
+<div class="card">⚡ Custom Coding</div>
 
-<div class="card">Learning New Tech</div>
+<div class="card">🚀 Learning New Tech</div>
 
 </div>
 
@@ -280,13 +295,19 @@ new technologies.
 <div class="grid">
 
 <div class="card">
+
 <h3>Telegram Bots</h3>
+
 <p>Automation and selling bots.</p>
+
 </div>
 
 <div class="card">
-<h3>Modern Websites</h3>
-<p>Clean responsive web development.</p>
+
+<h3>Websites</h3>
+
+<p>Modern responsive web development.</p>
+
 </div>
 
 </div>
@@ -300,5 +321,46 @@ new technologies.
 
 </footer>
 
+
+<script>
+
+/* TYPING EFFECT */
+
+const text = "Developer • Bot Creator • Web Builder";
+
+let i = 0;
+
+function typing(){
+
+if(i < text.length){
+
+document.getElementById("typing").innerHTML += text.charAt(i);
+
+i++;
+
+setTimeout(typing,70);
+
+}
+
+}
+
+typing();
+
+
+/* CURSOR GLOW */
+
+const cursor = document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.top = e.clientY + "px";
+cursor.style.left = e.clientX + "px";
+
+});
+
+</script>
+
+
 </body>
+
 </html>
