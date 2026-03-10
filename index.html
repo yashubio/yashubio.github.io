@@ -23,271 +23,227 @@ html{
 scroll-behavior:smooth;
 }
 
-/* BETTER ANIME BACKGROUND */
+/* ANIME BACKGROUND */
 
 body{
-
 background:
 linear-gradient(rgba(5,5,10,0.85),rgba(5,5,10,0.92)),
-url("https://images.alphacoders.com/121/1214019.jpg");
+url("https://images.alphacoders.com/133/1337529.jpeg");
 
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
-
 color:white;
-
+overflow-x:hidden;
 }
 
 /* NAVBAR */
 
 nav{
-
 display:flex;
 justify-content:space-between;
 align-items:center;
-
 padding:20px 8%;
-
-background:rgba(0,0,0,0.5);
-
+background:rgba(0,0,0,0.55);
 backdrop-filter:blur(10px);
-
 position:sticky;
 top:0;
-
+z-index:10;
 }
 
 nav h2{
-
 font-family:'Orbitron';
 color:#38bdf8;
-
+letter-spacing:2px;
 }
 
 nav a{
-
 color:#cbd5f5;
 text-decoration:none;
 margin-left:25px;
 transition:.2s;
-
 }
 
 nav a:hover{
-
 color:#38bdf8;
-
 }
 
 /* HERO */
 
 .hero{
-
-height:90vh;
-
+height:95vh;
 display:flex;
 flex-direction:column;
-
 justify-content:center;
 align-items:center;
-
 text-align:center;
-
 }
 
 .hero h1{
-
 font-size:70px;
 font-family:'Orbitron';
-
 }
 
 .hero span{
-
 color:#38bdf8;
-
 }
 
 .hero p{
-
 margin-top:10px;
 color:#9ca3af;
-
+font-size:18px;
 }
 
 /* GLOW BUTTON */
 
 .btn{
-
 margin-top:25px;
-
 padding:14px 34px;
-
 border-radius:10px;
-
 border:none;
-
 cursor:pointer;
-
 background:#38bdf8;
-
 color:white;
 
 box-shadow:
 0 0 10px #38bdf8,
-0 0 20px #38bdf8,
-0 0 40px #38bdf8;
+0 0 25px #38bdf8,
+0 0 50px #38bdf8;
 
 transition:.2s;
-
 }
 
 .btn:hover{
-
 transform:scale(1.08);
 
 box-shadow:
 0 0 20px #38bdf8,
 0 0 40px #38bdf8,
 0 0 80px #6366f1;
-
 }
 
-/* TERMINAL BOX */
+/* TERMINAL */
 
 .terminal{
-
 background:#020617;
-
 border-radius:10px;
-
 padding:20px;
-
 margin-top:40px;
-
 font-family:monospace;
-
 width:80%;
-
 max-width:600px;
-
 color:#22c55e;
+text-align:left;
+}
 
+/* FLOATING ANIME CHARACTER */
+
+.anime{
+position:fixed;
+bottom:0;
+right:30px;
+width:260px;
+pointer-events:none;
+animation:float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+100%{transform:translateY(0);}
 }
 
 /* SECTIONS */
 
 section{
-
 padding:100px 10%;
-
 }
 
 .title{
-
 font-size:32px;
 margin-bottom:30px;
 font-family:'Orbitron';
-
 }
 
-/* PROJECT GRID */
+/* GRID */
 
 .grid{
-
 display:grid;
-
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
 gap:25px;
-
 }
 
 /* CARDS */
 
 .card{
-
-background:rgba(20,20,30,0.8);
-
+background:rgba(20,20,30,0.85);
 padding:30px;
-
 border-radius:12px;
-
 transition:.25s;
-
 }
 
 .card:hover{
-
-transform:translateY(-10px) scale(1.05);
-
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
-
+transform:translateY(-12px) scale(1.05);
+box-shadow:0 10px 40px rgba(0,0,0,0.7);
 }
 
 /* GITHUB STYLE GRID */
 
 .github{
-
 display:grid;
-
 grid-template-columns:repeat(20,14px);
-
 gap:6px;
-
 margin-top:20px;
-
 }
 
 .box{
-
 width:14px;
 height:14px;
-
 background:#1f2937;
-
 border-radius:3px;
-
 }
 
 .box:nth-child(3n){
-
 background:#22c55e;
-
 }
 
 /* FOOTER */
 
 footer{
-
 text-align:center;
-
 padding:40px;
-
 color:#94a3b8;
+}
 
+/* GLOW CURSOR */
+
+.cursor{
+position:fixed;
+width:18px;
+height:18px;
+border-radius:50%;
+background:#38bdf8;
+pointer-events:none;
+filter:blur(6px);
 }
 
 </style>
 
 </head>
 
-
 <body>
 
+<div class="cursor"></div>
 
 <nav>
 
 <h2>Yashu.dev</h2>
 
 <div>
-
 <a href="#about">About</a>
 <a href="#skills">Skills</a>
 <a href="#projects">Projects</a>
 <a href="#github">GitHub</a>
-
 </div>
 
 </nav>
@@ -303,7 +259,8 @@ color:#94a3b8;
 
 <div class="terminal">
 
-> loading developer profile... <br>
+> booting developer portfolio... <br>
+> loading profile... <br>
 > skills detected... <br>
 > website development ✔ <br>
 > telegram bots ✔
@@ -407,6 +364,8 @@ creating Telegram bots and experimenting with new technology.
 
 </footer>
 
+<img class="anime" src="https://pngimg.com/uploads/anime/anime_PNG45.png">
+
 
 <script>
 
@@ -417,23 +376,25 @@ const text="Developer • Bot Creator • Website Builder";
 let i=0;
 
 function type(){
-
 if(i<text.length){
-
 document.getElementById("typing").innerHTML+=text.charAt(i);
-
 i++;
-
 setTimeout(type,70);
-
 }
-
 }
 
 type();
 
-</script>
+/* GLOW CURSOR */
 
+const cursor=document.querySelector(".cursor");
+
+document.addEventListener("mousemove",(e)=>{
+cursor.style.top=e.clientY+"px";
+cursor.style.left=e.clientX+"px";
+});
+
+</script>
 
 </body>
 </html>
