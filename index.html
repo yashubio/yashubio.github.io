@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -23,20 +22,19 @@ html{
 scroll-behavior:smooth;
 }
 
-/* ANIME BACKGROUND */
+/* REAL ANIME BACKGROUND */
 
 body{
 
 background:
-linear-gradient(rgba(5,5,10,0.75), rgba(5,5,10,0.85)),
-url("https://wallpaperaccess.com/full/31193.jpg");
+linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)),
+url("https://images6.alphacoders.com/135/1350195.jpeg");
 
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
 
 color:white;
-overflow-x:hidden;
 
 }
 
@@ -52,14 +50,12 @@ background:rgba(0,0,0,0.6);
 backdrop-filter:blur(8px);
 position:sticky;
 top:0;
-z-index:10;
 
 }
 
 nav h2{
 
 font-family:'Orbitron';
-letter-spacing:2px;
 color:#38bdf8;
 
 }
@@ -69,14 +65,39 @@ nav a{
 color:#cbd5f5;
 text-decoration:none;
 margin-left:25px;
-font-size:14px;
 transition:.2s;
 
 }
 
-nav a:hover{
+/* GLOW BUTTON STYLE */
 
-color:#38bdf8;
+button, .btn{
+
+padding:14px 32px;
+border-radius:10px;
+border:none;
+cursor:pointer;
+
+background:#38bdf8;
+color:white;
+
+transition:.25s;
+
+box-shadow:
+0 0 10px #38bdf8,
+0 0 20px #38bdf8,
+0 0 40px #38bdf8;
+
+}
+
+button:hover, .btn:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+0 0 20px #38bdf8,
+0 0 40px #38bdf8,
+0 0 80px #6366f1;
 
 }
 
@@ -110,36 +131,6 @@ color:#38bdf8;
 
 margin-top:10px;
 color:#9ca3af;
-font-size:18px;
-
-}
-
-/* NEON BUTTON */
-
-.btn{
-
-margin-top:30px;
-padding:14px 34px;
-border-radius:10px;
-border:none;
-cursor:pointer;
-
-background:linear-gradient(45deg,#38bdf8,#6366f1);
-color:white;
-font-size:16px;
-
-transition:.2s;
-
-}
-
-.btn:hover{
-
-transform:scale(1.08);
-
-box-shadow:
-0 0 10px #38bdf8,
-0 0 25px #38bdf8,
-0 0 50px #6366f1;
 
 }
 
@@ -169,23 +160,20 @@ gap:25px;
 
 }
 
-/* COOL CARDS */
+/* CARDS */
 
 .card{
 
 background:rgba(20,20,30,0.8);
 padding:30px;
 border-radius:12px;
-
 transition:.25s;
-
-transform-style:preserve-3d;
 
 }
 
 .card:hover{
 
-transform:rotateX(5deg) rotateY(-5deg) scale(1.05);
+transform:translateY(-10px) scale(1.05);
 
 box-shadow:0 10px 30px rgba(0,0,0,0.6);
 
@@ -206,13 +194,12 @@ color:#94a3b8;
 .cursor{
 
 position:fixed;
-width:20px;
-height:20px;
+width:18px;
+height:18px;
 border-radius:50%;
 background:#38bdf8;
 pointer-events:none;
-mix-blend-mode:screen;
-filter:blur(8px);
+filter:blur(6px);
 
 }
 
@@ -227,7 +214,7 @@ filter:blur(8px);
 
 <nav>
 
-<h2>Yashu.dev</h2>
+<h2>Yashu Bisht</h2>
 
 <div>
 
@@ -275,13 +262,13 @@ I enjoy building websites, coding custom tools and creating Telegram bots.
 
 <div class="grid">
 
-<div class="card">🌐 Website Development</div>
+<div class="card">Website Development</div>
 
-<div class="card">🤖 Telegram Bots</div>
+<div class="card">Telegram Bots</div>
 
-<div class="card">⚡ Custom Coding</div>
+<div class="card">Custom Coding</div>
 
-<div class="card">🚀 Learning New Tech</div>
+<div class="card">Learning New Tech</div>
 
 </div>
 
@@ -300,6 +287,8 @@ I enjoy building websites, coding custom tools and creating Telegram bots.
 
 <p>Automation and selling bots.</p>
 
+<button>View Project</button>
+
 </div>
 
 <div class="card">
@@ -307,6 +296,8 @@ I enjoy building websites, coding custom tools and creating Telegram bots.
 <h3>Websites</h3>
 
 <p>Modern responsive web development.</p>
+
+<button>View Project</button>
 
 </div>
 
@@ -326,7 +317,7 @@ I enjoy building websites, coding custom tools and creating Telegram bots.
 
 /* TYPING EFFECT */
 
-const text = "Developer • Bot Creator • Web Builder";
+const text = "Developer • Bot Creator • Website Builder";
 
 let i = 0;
 
@@ -338,7 +329,7 @@ document.getElementById("typing").innerHTML += text.charAt(i);
 
 i++;
 
-setTimeout(typing,70);
+setTimeout(typing,60);
 
 }
 
@@ -362,5 +353,4 @@ cursor.style.left = e.clientX + "px";
 
 
 </body>
-
 </html>
