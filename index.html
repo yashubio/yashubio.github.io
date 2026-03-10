@@ -58,7 +58,6 @@ nav a{
 color:#cbd5f5;
 text-decoration:none;
 margin-left:25px;
-transition:.2s;
 }
 
 nav a:hover{
@@ -68,7 +67,7 @@ color:#38bdf8;
 /* HERO */
 
 .hero{
-height:90vh;
+height:95vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
@@ -90,32 +89,38 @@ margin-top:10px;
 color:#9ca3af;
 }
 
-/* BUTTON */
+/* EXPLORE BUTTON */
 
 .btn{
 margin-top:25px;
-padding:14px 34px;
+padding:15px 36px;
 border-radius:10px;
 border:none;
 cursor:pointer;
+
 background:#38bdf8;
 color:white;
+font-size:16px;
 
 box-shadow:
 0 0 10px #38bdf8,
-0 0 20px #38bdf8,
-0 0 40px #38bdf8;
+0 0 25px #38bdf8,
+0 0 45px #38bdf8;
 
+animation:pulse 2s infinite;
 transition:.2s;
 }
 
 .btn:hover{
-transform:scale(1.08);
+transform:scale(1.1);
+}
 
-box-shadow:
-0 0 20px #38bdf8,
-0 0 40px #38bdf8,
-0 0 80px #6366f1;
+@keyframes pulse{
+
+0%{box-shadow:0 0 10px #38bdf8;}
+50%{box-shadow:0 0 40px #38bdf8;}
+100%{box-shadow:0 0 10px #38bdf8;}
+
 }
 
 /* TERMINAL */
@@ -129,6 +134,7 @@ font-family:monospace;
 width:80%;
 max-width:600px;
 color:#22c55e;
+text-align:left;
 }
 
 /* SECTIONS */
@@ -141,14 +147,6 @@ padding:100px 10%;
 font-size:32px;
 margin-bottom:30px;
 font-family:'Orbitron';
-}
-
-/* GRID */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
 }
 
 /* CARDS */
@@ -165,6 +163,29 @@ transform:translateY(-10px) scale(1.05);
 box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
+/* GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+/* ANIME CHARACTER */
+
+.anime{
+position:fixed;
+bottom:-400px;
+right:30px;
+width:260px;
+transition:1s;
+pointer-events:none;
+}
+
+.anime.show{
+bottom:0;
+}
+
 /* FOOTER */
 
 footer{
@@ -179,7 +200,6 @@ color:#94a3b8;
 
 
 <body>
-
 
 <nav>
 
@@ -200,9 +220,7 @@ color:#94a3b8;
 
 <p id="typing"></p>
 
-<a href="#about">
-<button class="btn">Explore</button>
-</a>
+<button class="btn" onclick="goAbout()">Explore</button>
 
 <div class="terminal">
 
@@ -225,20 +243,19 @@ color:#94a3b8;
 <p>
 
 Hi, I'm <b>Yashu Bisht</b>.  
-I'm a <b>15 year old developer from Uttarakhand</b> who loves technology and coding.
+I'm a <b>15 year old developer from Uttarakhand</b>.
 
-I enjoy learning new things every day, especially programming and building things on the internet.
+I like learning new coding skills every day.  
+I enjoy working with:
 
-I like working with:
-
-• HTML and website development  
+• HTML and websites  
 • Creating Telegram bots  
-• Learning new coding techniques  
-• Building cool online projects  
+• Learning new coding tricks  
+• Building projects online  
 
-Coding is something I practice daily because I enjoy improving my skills and creating new things.
+Coding is something I practice daily because I enjoy creating things on the internet.
 
-Also yes, I'm currently in a relationship ❤️.
+And yes — I'm currently in a relationship ❤️.
 
 </p>
 
@@ -254,11 +271,8 @@ Also yes, I'm currently in a relationship ❤️.
 <div class="grid">
 
 <div class="card">🌐 Website Development</div>
-
 <div class="card">🤖 Telegram Bots</div>
-
 <div class="card">⚡ Custom Coding</div>
-
 <div class="card">🚀 Learning New Tech</div>
 
 </div>
@@ -275,20 +289,14 @@ Also yes, I'm currently in a relationship ❤️.
 <div class="card">
 
 <h3>Telegram Bots</h3>
-
 <p>Automation and selling bots.</p>
-
-<button class="btn">View</button>
 
 </div>
 
 <div class="card">
 
 <h3>Websites</h3>
-
 <p>Modern responsive web development.</p>
-
-<button class="btn">View</button>
 
 </div>
 
@@ -302,6 +310,9 @@ Also yes, I'm currently in a relationship ❤️.
 © 2026 Yashu Bisht
 
 </footer>
+
+
+<img id="anime" class="anime" src="https://pngimg.com/uploads/anime/anime_PNG45.png">
 
 
 <script>
@@ -319,7 +330,6 @@ if(i<text.length){
 document.getElementById("typing").innerHTML+=text.charAt(i);
 
 i++;
-
 setTimeout(type,70);
 
 }
@@ -327,6 +337,21 @@ setTimeout(type,70);
 }
 
 type();
+
+
+/* EXPLORE BUTTON */
+
+function goAbout(){
+
+document.getElementById("about").scrollIntoView({
+behavior:"smooth"
+});
+
+/* anime slide */
+
+document.getElementById("anime").classList.add("show");
+
+}
 
 </script>
 
