@@ -3,201 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yashu Bisht | Digital Architect</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <title>YASHU | SUCCESS_START</title>
     <style>
-        :root {
-            --primary: #00f2ff; /* Cyan Glow */
-            --secondary: #7000ff; /* Purple Glow */
-            --bg: #0a0a0c;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --text: #e0e0e0;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(112, 0, 255, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(0, 242, 255, 0.1) 0%, transparent 20%);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text);
-            display: flex;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 2rem 1rem;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 600px;
-            width: 100%;
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        /* Glass Card */
-        .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            margin: 0 auto 1.5rem;
+            background: #050505;
+            /* High-Energy Anime Background */
+            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                              url('https://api.wallpapers-anime.com/wp-content/uploads/2023/03/cyberpunk-edgerunners-lucy-gif.gif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Share Tech Mono', monospace;
+            color: #00ff41; /* Classic Matrix/Terminal Green */
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            letter-spacing: -1px;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #fff, #888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .location {
-            font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .bio-text {
-            font-size: 1rem;
-            color: #b0b0b0;
-            margin-bottom: 2rem;
-        }
-
-        /* Glowing Buttons */
-        .links-grid {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .btn {
-            position: relative;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            text-decoration: none;
-            color: white;
-            font-weight: 600;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 1px solid rgba(255, 255, 255, 0.1);
             overflow: hidden;
         }
 
-        .btn:hover {
-            transform: scale(1.02);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--primary);
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
+        /* Scanline / CRT Flicker Effect */
+        .crt-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 3px, 3px 100%;
+            z-index: 100;
+            pointer-events: none;
+            animation: flicker 0.15s infinite;
         }
 
-        .special-link {
-            border-color: rgba(112, 0, 255, 0.5);
+        .main-frame {
+            background: rgba(10, 10, 15, 0.85);
+            border: 4px solid #333;
+            border-style: outset; /* Makes it look like an old machine */
+            padding: 40px;
+            max-width: 550px;
+            width: 95%;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 1), inset 0 0 20px rgba(0, 255, 65, 0.1);
         }
 
-        .special-link:hover {
-            border-color: #ff007a;
-            box-shadow: 0 0 20px rgba(255, 0, 122, 0.3);
-        }
-
-        /* Stats/Info Section */
-        .info-section {
-            margin-top: 2rem;
-            text-align: left;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .info-tag {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            background: rgba(0, 242, 255, 0.1);
-            color: var(--primary);
-            font-size: 0.75rem;
-            margin: 4px;
-            border: 1px solid rgba(0, 242, 255, 0.2);
-        }
-
-        .lifeline {
-            margin-top: 2rem;
-            font-style: italic;
-            color: #ff7eb9;
-            font-size: 0.9rem;
-        }
-
-        .warning {
-            margin-top: 1.5rem;
-            font-size: 0.7rem;
-            color: #555;
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.2rem;
+            color: #fff;
+            text-shadow: 3px 3px #ff0055;
+            margin-bottom: 5px;
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .sub-header {
+            font-size: 0.7rem;
+            background: #ff0055;
+            color: #fff;
+            display: inline-block;
+            padding: 2px 8px;
+            margin-bottom: 25px;
+        }
+
+        .details-box {
+            border: 1px solid #333;
+            background: rgba(0,0,0,0.5);
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .details-box span { color: #ff0055; font-weight: bold; }
+
+        /* OLD SCHOOL GLOWING BUTTONS */
+        .button-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            display: block;
+            padding: 15px;
+            background: #1a1a1a;
+            border: 3px solid #444;
+            border-style: outset;
+            color: #00ff41;
+            text-decoration: none;
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6rem;
+            transition: 0.1s;
+            text-shadow: 0 0 5px #00ff41;
+        }
+
+        .btn:hover {
+            background: #00ff41;
+            color: #000;
+            border-style: inset;
+            text-shadow: none;
+            box-shadow: 0 0 20px #00ff41;
+            transform: translateY(2px);
+        }
+
+        .btn:active {
+            background: #ff0055;
+            box-shadow: 0 0 30px #ff0055;
+        }
+
+        .lifeline-tag {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #fff;
+            border-left: 3px solid #ff0055;
+            padding-left: 10px;
+        }
+
+        .warning-footer {
+            margin-top: 20px;
+            font-size: 0.65rem;
+            color: #555;
+            font-style: italic;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 0.97; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="glass-card">
-            <div class="profile-img">YB</div>
-            
-            <h1>Yashu Bisht</h1>
-            <span class="location">Uttarakhand ➔ Delhi</span>
-            
-            <p class="bio-text">
-                Full-stack Coder | Telegram Bot Architect | Details Finder. <br>
-                Turning API logic into art and building random digital universes.
-            </p>
+    <div class="crt-overlay"></div>
 
-            <div class="links-grid">
-                <a href="#" class="btn">⚡ My Telegram Bots</a>
-                <a href="#" class="btn">📂 GitHub Projects</a>
-                <a href="#" class="btn">🔍 Details Finder Tool</a>
-                <a href="#" class="btn special-link">🚀 Future Ventures</a>
-            </div>
+    <div class="main-frame">
+        <h1>YASHU_BISHT.EXE</h1>
+        <div class="sub-header">EST. UTTRAKHAND | BASED IN DELHI</div>
 
-            <div class="info-section">
-                <span class="info-tag">#Python</span>
-                <span class="info-tag">#BotAPI</span>
-                <span class="info-tag">#WebDev</span>
-                <span class="info-tag">#Innovation</span>
-            </div>
+        <div class="details-box">
+            > SYSTEM_USER: <span>YASHU</span><br>
+            > ROLE: <span>CODER / DETAILS_FINDER</span><br>
+            > SKILL: <span>TELEGRAM_BOT_API_EXPERT</span><br>
+            > STATUS: <span>SUCCESS_IN_PROGRESS</span>
+        </div>
 
-            <p class="lifeline">🔒 LifeLine: Unishtha</p>
+        <div class="button-stack">
+            <a href="#" class="btn">INITIALIZE_BOTS</a>
+            <a href="#" class="btn">FIND_DETAILS</a>
+            <a href="#" class="btn">WEB_LAB_PROJECTS</a>
+        </div>
 
-            <div class="warning">
-                "This isn't my first site—it's the start of my success. Watch closely, or regret it tomorrow."
-            </div>
+        <div class="lifeline-tag">
+            HEARTBEAT_SYNC: <strong>UNISHTHA</strong> ❤️
+        </div>
+
+        <div class="warning-footer">
+            "THIS IS THE STARTING OF MY SUCCESS. SEE THE MORE & YOU REGRET TOMORROW."
         </div>
     </div>
 
