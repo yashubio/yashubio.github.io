@@ -3,168 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YASHU | SUCCESS_START</title>
+    <title>Yashu Bisht | Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap');
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
         body {
-            background: #050505;
-            /* High-Energy Anime Background */
-            background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                              url('https://api.wallpapers-anime.com/wp-content/uploads/2023/03/cyberpunk-edgerunners-lucy-gif.gif');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            font-family: 'Share Tech Mono', monospace;
-            color: #00ff41; /* Classic Matrix/Terminal Green */
+            background-color: #0f0f13;
+            color: #ffffff;
             height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             overflow: hidden;
-        }
-
-        /* Scanline / CRT Flicker Effect */
-        .crt-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-            background-size: 100% 3px, 3px 100%;
-            z-index: 100;
-            pointer-events: none;
-            animation: flicker 0.15s infinite;
-        }
-
-        .main-frame {
-            background: rgba(10, 10, 15, 0.85);
-            border: 4px solid #333;
-            border-style: outset; /* Makes it look like an old machine */
-            padding: 40px;
-            max-width: 550px;
-            width: 95%;
             position: relative;
+        }
+
+        /* HD Anime Background with Blur */
+        .bg-image {
+            position: absolute;
+            top: -5%; left: -5%;
+            width: 110%; height: 110%;
+            background-image: url('https://i.pinimg.com/originals/a4/82/35/a48235882bf610cd51ba3e1e07b8cdba.gif'); /* Premium Anime Scenery GIF */
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px) brightness(0.35);
+            z-index: 1;
+        }
+
+        /* Interactive Canvas */
+        #particles-js {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 2;
+        }
+
+        /* Centered Profile Card */
+        .profile-card {
+            background: rgba(20, 20, 25, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
             z-index: 10;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 1), inset 0 0 20px rgba(0, 255, 65, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            animation: floatUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        /* Profile Picture */
+        .pfp-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+        }
+
+        .pfp {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+
+        /* Status Dot */
+        .status {
+            position: absolute;
+            bottom: 5px; right: 5px;
+            width: 15px; height: 15px;
+            background-color: #23a559; /* Discord Green */
+            border-radius: 50%;
+            border: 2px solid #1a1a24;
         }
 
         h1 {
-            font-family: 'Press Start 2P', cursive;
-            font-size: 1.2rem;
-            color: #fff;
-            text-shadow: 3px 3px #ff0055;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             margin-bottom: 5px;
-            text-transform: uppercase;
         }
 
-        .sub-header {
-            font-size: 0.7rem;
-            background: #ff0055;
-            color: #fff;
-            display: inline-block;
-            padding: 2px 8px;
+        .subtitle {
+            font-size: 0.85rem;
+            color: #a0a0b0;
             margin-bottom: 25px;
+            font-weight: 300;
         }
 
-        .details-box {
-            border: 1px solid #333;
-            background: rgba(0,0,0,0.5);
-            padding: 15px;
-            margin-bottom: 25px;
-            font-size: 0.9rem;
-            line-height: 1.8;
-        }
-
-        .details-box span { color: #ff0055; font-weight: bold; }
-
-        /* OLD SCHOOL GLOWING BUTTONS */
-        .button-stack {
+        /* Smooth Pill Buttons */
+        .link-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
+            margin-bottom: 25px;
         }
 
         .btn {
             display: block;
-            padding: 15px;
-            background: #1a1a1a;
-            border: 3px solid #444;
-            border-style: outset;
-            color: #00ff41;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 14px 20px;
+            border-radius: 15px;
+            color: #ffffff;
             text-decoration: none;
-            text-align: center;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.6rem;
-            transition: 0.1s;
-            text-shadow: 0 0 5px #00ff41;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn:hover {
-            background: #00ff41;
-            color: #000;
-            border-style: inset;
-            text-shadow: none;
-            box-shadow: 0 0 20px #00ff41;
-            transform: translateY(2px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
         }
 
-        .btn:active {
-            background: #ff0055;
-            box-shadow: 0 0 30px #ff0055;
+        /* Special Details */
+        .lifeline {
+            font-size: 0.85rem;
+            color: #ff4d6d;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
 
-        .lifeline-tag {
-            margin-top: 30px;
-            font-size: 0.8rem;
-            color: #fff;
-            border-left: 3px solid #ff0055;
-            padding-left: 10px;
-        }
-
-        .warning-footer {
-            margin-top: 20px;
-            font-size: 0.65rem;
-            color: #555;
+        .quote {
+            font-size: 0.75rem;
+            color: #707080;
             font-style: italic;
+            line-height: 1.6;
         }
 
-        @keyframes flicker {
-            0% { opacity: 0.97; }
-            100% { opacity: 1; }
+        @keyframes floatUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="crt-overlay"></div>
+    <div class="bg-image"></div>
+    <div id="particles-js"></div>
 
-    <div class="main-frame">
-        <h1>YASHU_BISHT.EXE</h1>
-        <div class="sub-header">EST. UTTRAKHAND | BASED IN DELHI</div>
-
-        <div class="details-box">
-            > SYSTEM_USER: <span>YASHU</span><br>
-            > ROLE: <span>CODER / DETAILS_FINDER</span><br>
-            > SKILL: <span>TELEGRAM_BOT_API_EXPERT</span><br>
-            > STATUS: <span>SUCCESS_IN_PROGRESS</span>
+    <div class="profile-card">
+        <div class="pfp-container">
+            <img src="https://i.pinimg.com/736x/5c/7b/16/5c7b163aeb1a60155700cbcefa8581ee.jpg" alt="Yashu Bisht" class="pfp">
+            <div class="status"></div>
         </div>
 
-        <div class="button-stack">
-            <a href="#" class="btn">INITIALIZE_BOTS</a>
-            <a href="#" class="btn">FIND_DETAILS</a>
-            <a href="#" class="btn">WEB_LAB_PROJECTS</a>
+        <h1>Yashu Bisht</h1>
+        <div class="subtitle">Uttarakhand ➔ Delhi | Coder & API Dev</div>
+
+        <div class="link-container">
+            <a href="#" class="btn">Telegram Bot Projects</a>
+            <a href="#" class="btn">Details Finder Target</a>
+            <a href="#" class="btn">Random Website Creator</a>
         </div>
 
-        <div class="lifeline-tag">
-            HEARTBEAT_SYNC: <strong>UNISHTHA</strong> ❤️
+        <div class="lifeline">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#ff4d6d"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            Unishtha
         </div>
 
-        <div class="warning-footer">
-            "THIS IS THE STARTING OF MY SUCCESS. SEE THE MORE & YOU REGRET TOMORROW."
+        <div class="quote">
+            "This isn't my first website; it's the start of my success.<br>See the more, and you regret tomorrow."
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.3, "random": true },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.1, "width": 1 },
+                "move": { "enable": true, "speed": 1.5, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
 </body>
 </html>
